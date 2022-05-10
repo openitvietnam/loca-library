@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using LocaLibrary.App.Forms;
+
 namespace LocaLibrary.App
 {
     internal static class Program
@@ -16,7 +18,7 @@ namespace LocaLibrary.App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new LoginForm());
         }
     }
 }

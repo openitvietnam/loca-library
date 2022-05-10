@@ -16,5 +16,11 @@ namespace LocaLibrary.App.Forms
         {
             InitializeComponent();
         }
+
+        public void OpenMainForm()
+        {
+            Hide();
+            new MainForm().Show();
+        }
     }
 }
