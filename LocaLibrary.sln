@@ -8,6 +8,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
+		Resources\icon-512.ico = Resources\icon-512.ico
+		Resources\icon-512.png = Resources\icon-512.png
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
