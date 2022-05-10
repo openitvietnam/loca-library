@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace LocaLibrary.App
 {
-	public partial class MainForm : Form
-	{
-		public MainForm()
-		{
-			InitializeComponent();
-		}
-	}
+    public partial class MainForm : Form
+    {
+        public MainForm()
+        {
+            InitializeComponent();
+        }
+    }
 }
