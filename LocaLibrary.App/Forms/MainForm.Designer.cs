@@ -73,6 +73,7 @@
             this.menuItemEditProfile.Name = "menuItemEditProfile";
             this.menuItemEditProfile.Size = new System.Drawing.Size(180, 22);
             this.menuItemEditProfile.Text = "Edit Profile...";
+            this.menuItemEditProfile.Click += new System.EventHandler(this.menuItemEditProfile_Click);
             // 
             // menuItemLogOut
             // 
@@ -101,25 +102,25 @@
             // menuItemEmployees
             // 
             this.menuItemEmployees.Name = "menuItemEmployees";
-            this.menuItemEmployees.Size = new System.Drawing.Size(140, 22);
+            this.menuItemEmployees.Size = new System.Drawing.Size(180, 22);
             this.menuItemEmployees.Text = "Employees...";
             // 
             // menuItemMembers
             // 
             this.menuItemMembers.Name = "menuItemMembers";
-            this.menuItemMembers.Size = new System.Drawing.Size(140, 22);
+            this.menuItemMembers.Size = new System.Drawing.Size(180, 22);
             this.menuItemMembers.Text = "Members...";
             // 
             // menuItemCategorys
             // 
             this.menuItemCategorys.Name = "menuItemCategorys";
-            this.menuItemCategorys.Size = new System.Drawing.Size(140, 22);
+            this.menuItemCategorys.Size = new System.Drawing.Size(180, 22);
             this.menuItemCategorys.Text = "Categories...";
             // 
             // menuItemBooks
             // 
             this.menuItemBooks.Name = "menuItemBooks";
-            this.menuItemBooks.Size = new System.Drawing.Size(140, 22);
+            this.menuItemBooks.Size = new System.Drawing.Size(180, 22);
             this.menuItemBooks.Text = "Books...";
             // 
             // menuItemHelp

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using LocaLibrary.App.Forms;
+
 namespace LocaLibrary.App
 {
     public partial class MainForm : Form
@@ -49,6 +51,11 @@ namespace LocaLibrary.App
         private void menuItemExit_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void menuItemEditProfile_Click(object sender, EventArgs e)
+        {
+            new EditProfileForm().ShowDialog();
         }
     }
 }

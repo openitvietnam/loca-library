@@ -16,5 +16,10 @@ namespace LocaLibrary.App.Forms
         {
             InitializeComponent();
         }
+
+        private void buttonSaveChanges_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
