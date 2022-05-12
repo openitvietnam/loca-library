@@ -22,5 +22,10 @@ namespace LocaLibrary.App.Forms
             Hide();
             new MainForm().Show();
         }
+
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            OpenMainForm();
+        }
     }
 }
