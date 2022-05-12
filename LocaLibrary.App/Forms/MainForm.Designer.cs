@@ -29,7 +29,118 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            this.menuMain = new System.Windows.Forms.MenuStrip();
+            this.menuItemAccount = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemEditProfile = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemLogOut = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemManage = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemCheckForUpdates = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemEmployees = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemMembers = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemCategorys = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemBooks = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuMain.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // menuMain
+            // 
+            this.menuMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.menuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemAccount,
+            this.menuItemManage,
+            this.menuItemHelp});
+            this.menuMain.Location = new System.Drawing.Point(0, 0);
+            this.menuMain.Name = "menuMain";
+            this.menuMain.Size = new System.Drawing.Size(1008, 24);
+            this.menuMain.TabIndex = 0;
+            this.menuMain.Text = "menuStrip1";
+            // 
+            // menuItemAccount
+            // 
+            this.menuItemAccount.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemEditProfile,
+            this.menuItemLogOut,
+            this.menuItemExit});
+            this.menuItemAccount.Name = "menuItemAccount";
+            this.menuItemAccount.Size = new System.Drawing.Size(64, 20);
+            this.menuItemAccount.Text = "Account";
+            // 
+            // menuItemEditProfile
+            // 
+            this.menuItemEditProfile.Name = "menuItemEditProfile";
+            this.menuItemEditProfile.Size = new System.Drawing.Size(180, 22);
+            this.menuItemEditProfile.Text = "Edit Profile...";
+            // 
+            // menuItemLogOut
+            // 
+            this.menuItemLogOut.Name = "menuItemLogOut";
+            this.menuItemLogOut.Size = new System.Drawing.Size(180, 22);
+            this.menuItemLogOut.Text = "Log Out";
+            // 
+            // menuItemExit
+            // 
+            this.menuItemExit.Name = "menuItemExit";
+            this.menuItemExit.Size = new System.Drawing.Size(180, 22);
+            this.menuItemExit.Text = "Exit";
+            // 
+            // menuItemManage
+            // 
+            this.menuItemManage.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemEmployees,
+            this.menuItemMembers,
+            this.menuItemCategorys,
+            this.menuItemBooks});
+            this.menuItemManage.Name = "menuItemManage";
+            this.menuItemManage.Size = new System.Drawing.Size(62, 20);
+            this.menuItemManage.Text = "Manage";
+            // 
+            // menuItemHelp
+            // 
+            this.menuItemHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemCheckForUpdates,
+            this.menuItemAbout});
+            this.menuItemHelp.Name = "menuItemHelp";
+            this.menuItemHelp.Size = new System.Drawing.Size(44, 20);
+            this.menuItemHelp.Text = "Help";
+            // 
+            // menuItemCheckForUpdates
+            // 
+            this.menuItemCheckForUpdates.Name = "menuItemCheckForUpdates";
+            this.menuItemCheckForUpdates.Size = new System.Drawing.Size(180, 22);
+            this.menuItemCheckForUpdates.Text = "Check for Updates";
+            // 
+            // menuItemAbout
+            // 
+            this.menuItemAbout.Name = "menuItemAbout";
+            this.menuItemAbout.Size = new System.Drawing.Size(180, 22);
+            this.menuItemAbout.Text = "About Loca Library";
+            // 
+            // menuItemEmployees
+            // 
+            this.menuItemEmployees.Name = "menuItemEmployees";
+            this.menuItemEmployees.Size = new System.Drawing.Size(180, 22);
+            this.menuItemEmployees.Text = "Employees...";
+            // 
+            // menuItemMembers
+            // 
+            this.menuItemMembers.Name = "menuItemMembers";
+            this.menuItemMembers.Size = new System.Drawing.Size(180, 22);
+            this.menuItemMembers.Text = "Members...";
+            // 
+            // menuItemCategorys
+            // 
+            this.menuItemCategorys.Name = "menuItemCategorys";
+            this.menuItemCategorys.Size = new System.Drawing.Size(180, 22);
+            this.menuItemCategorys.Text = "Categories...";
+            // 
+            // menuItemBooks
+            // 
+            this.menuItemBooks.Name = "menuItemBooks";
+            this.menuItemBooks.Size = new System.Drawing.Size(180, 22);
+            this.menuItemBooks.Text = "Books...";
             // 
             // MainForm
             // 
@@ -37,17 +148,36 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1008, 601);
+            this.Controls.Add(this.menuMain);
             this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuMain;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "Loca Library";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
+            this.menuMain.ResumeLayout(false);
+            this.menuMain.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.MenuStrip menuMain;
+        private System.Windows.Forms.ToolStripMenuItem menuItemAccount;
+        private System.Windows.Forms.ToolStripMenuItem menuItemEditProfile;
+        private System.Windows.Forms.ToolStripMenuItem menuItemLogOut;
+        private System.Windows.Forms.ToolStripMenuItem menuItemExit;
+        private System.Windows.Forms.ToolStripMenuItem menuItemManage;
+        private System.Windows.Forms.ToolStripMenuItem menuItemHelp;
+        private System.Windows.Forms.ToolStripMenuItem menuItemCheckForUpdates;
+        private System.Windows.Forms.ToolStripMenuItem menuItemAbout;
+        private System.Windows.Forms.ToolStripMenuItem menuItemEmployees;
+        private System.Windows.Forms.ToolStripMenuItem menuItemMembers;
+        private System.Windows.Forms.ToolStripMenuItem menuItemCategorys;
+        private System.Windows.Forms.ToolStripMenuItem menuItemBooks;
     }
 }
 
