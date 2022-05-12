@@ -174,6 +174,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login to your account";
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogin)).EndInit();
             this.panelContainer.ResumeLayout(false);
