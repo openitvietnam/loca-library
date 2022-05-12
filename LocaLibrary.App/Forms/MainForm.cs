@@ -21,5 +21,34 @@ namespace LocaLibrary.App
         {
             Application.Exit();
         }
+
+        private void menuItemAbout_Click(object sender, EventArgs e)
+        {
+            // https://docs.microsoft.com/en-us/troubleshoot/developer/visualstudio/csharp/language-compilers/start-internet-browser
+            const string HOMEPAGE_URL = "https://github.com/openitvietnam/loca-library";
+            try
+            {
+                System.Diagnostics.Process.Start(HOMEPAGE_URL);
+            }
+            catch (Win32Exception noBrowser)
+            {
+                if (noBrowser.ErrorCode == -2147467259)
+                    MessageBox.Show(noBrowser.Message, "Error");
+            }
+            catch (Exception other)
+            {
+                MessageBox.Show(other.Message, "Error");
+            }
+        }
+
+        private void menuItemCheckForUpdates_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This feature is not available", "Information");
+        }
+
+        private void menuItemExit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
