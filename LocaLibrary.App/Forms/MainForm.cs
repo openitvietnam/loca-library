@@ -86,6 +86,17 @@ namespace LocaLibrary.App
             {
                 menuItemManage.Enabled = false;
             }
+
+            // Load current user
+            labelCurrentUserFullName.Text = AuthService.UserLogin.FullName;
+            labelCurrentUserEmail.Text = AuthService.UserLogin.Email;
+            labelToday.Text = DateTime.Today.ToString("dd/MM/yyyy");
+
+            // Load book overview
+            var borrowingBookCount = 0;
+            var totalBookCount = 0;
+            labelBorrowingBookCount.Text = String.Format("Borrowing: {0}", borrowingBookCount);
+            labelTotalBookCount.Text = String.Format("Total: {0}", totalBookCount);
         }
     }
 }

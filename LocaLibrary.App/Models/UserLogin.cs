@@ -9,11 +9,15 @@ namespace LocaLibrary.App.Models
     internal class UserLogin
     {
         public int Id { get; }
+        public string Email { get; }
+        public string FullName { get; }
         public bool IsAdmin { get; }
 
-        public UserLogin(int id, bool isAdmin)
+        public UserLogin(int id, string email, string fullName, bool isAdmin)
         {
             Id = id;
+            Email = email;
+            FullName = fullName;
             IsAdmin = isAdmin;
         }
     }

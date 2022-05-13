@@ -41,7 +41,20 @@
             this.menuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemCheckForUpdates = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelSide = new System.Windows.Forms.Panel();
+            this.panelOverview = new System.Windows.Forms.Panel();
+            this.labelTotalBookCount = new System.Windows.Forms.Label();
+            this.labelBorrowingBookCount = new System.Windows.Forms.Label();
+            this.labelOverview = new System.Windows.Forms.Label();
+            this.panelCurrentUser = new System.Windows.Forms.Panel();
+            this.labelToday = new System.Windows.Forms.Label();
+            this.labelCurrentUserEmail = new System.Windows.Forms.Label();
+            this.labelCurrentUserFullName = new System.Windows.Forms.Label();
+            this.labelCurrentUser = new System.Windows.Forms.Label();
             this.menuMain.SuspendLayout();
+            this.panelSide.SuspendLayout();
+            this.panelOverview.SuspendLayout();
+            this.panelCurrentUser.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuMain
@@ -142,12 +155,121 @@
             this.menuItemAbout.Text = "About Loca Library";
             this.menuItemAbout.Click += new System.EventHandler(this.menuItemAbout_Click);
             // 
+            // panelSide
+            // 
+            this.panelSide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.panelSide.Controls.Add(this.panelOverview);
+            this.panelSide.Controls.Add(this.panelCurrentUser);
+            this.panelSide.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelSide.Location = new System.Drawing.Point(0, 24);
+            this.panelSide.Name = "panelSide";
+            this.panelSide.Size = new System.Drawing.Size(200, 577);
+            this.panelSide.TabIndex = 1;
+            // 
+            // panelOverview
+            // 
+            this.panelOverview.Controls.Add(this.labelTotalBookCount);
+            this.panelOverview.Controls.Add(this.labelBorrowingBookCount);
+            this.panelOverview.Controls.Add(this.labelOverview);
+            this.panelOverview.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelOverview.Location = new System.Drawing.Point(0, 427);
+            this.panelOverview.Name = "panelOverview";
+            this.panelOverview.Padding = new System.Windows.Forms.Padding(20);
+            this.panelOverview.Size = new System.Drawing.Size(200, 150);
+            this.panelOverview.TabIndex = 1;
+            // 
+            // labelTotalBookCount
+            // 
+            this.labelTotalBookCount.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelTotalBookCount.Location = new System.Drawing.Point(20, 90);
+            this.labelTotalBookCount.Name = "labelTotalBookCount";
+            this.labelTotalBookCount.Size = new System.Drawing.Size(160, 30);
+            this.labelTotalBookCount.TabIndex = 6;
+            this.labelTotalBookCount.Text = "Total: ?";
+            this.labelTotalBookCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelBorrowingBookCount
+            // 
+            this.labelBorrowingBookCount.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelBorrowingBookCount.Location = new System.Drawing.Point(20, 60);
+            this.labelBorrowingBookCount.Name = "labelBorrowingBookCount";
+            this.labelBorrowingBookCount.Size = new System.Drawing.Size(160, 30);
+            this.labelBorrowingBookCount.TabIndex = 5;
+            this.labelBorrowingBookCount.Text = "Borrowing: ?";
+            this.labelBorrowingBookCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelOverview
+            // 
+            this.labelOverview.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelOverview.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.labelOverview.Location = new System.Drawing.Point(20, 20);
+            this.labelOverview.Name = "labelOverview";
+            this.labelOverview.Size = new System.Drawing.Size(160, 40);
+            this.labelOverview.TabIndex = 4;
+            this.labelOverview.Text = "Overview";
+            this.labelOverview.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panelCurrentUser
+            // 
+            this.panelCurrentUser.Controls.Add(this.labelToday);
+            this.panelCurrentUser.Controls.Add(this.labelCurrentUserEmail);
+            this.panelCurrentUser.Controls.Add(this.labelCurrentUserFullName);
+            this.panelCurrentUser.Controls.Add(this.labelCurrentUser);
+            this.panelCurrentUser.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelCurrentUser.Location = new System.Drawing.Point(0, 0);
+            this.panelCurrentUser.Name = "panelCurrentUser";
+            this.panelCurrentUser.Padding = new System.Windows.Forms.Padding(20);
+            this.panelCurrentUser.Size = new System.Drawing.Size(200, 180);
+            this.panelCurrentUser.TabIndex = 0;
+            // 
+            // labelToday
+            // 
+            this.labelToday.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelToday.Location = new System.Drawing.Point(20, 120);
+            this.labelToday.Name = "labelToday";
+            this.labelToday.Size = new System.Drawing.Size(160, 30);
+            this.labelToday.TabIndex = 3;
+            this.labelToday.Text = "dd/MM/yyyy";
+            this.labelToday.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelCurrentUserEmail
+            // 
+            this.labelCurrentUserEmail.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelCurrentUserEmail.Location = new System.Drawing.Point(20, 90);
+            this.labelCurrentUserEmail.Name = "labelCurrentUserEmail";
+            this.labelCurrentUserEmail.Size = new System.Drawing.Size(160, 30);
+            this.labelCurrentUserEmail.TabIndex = 2;
+            this.labelCurrentUserEmail.Text = "Email";
+            this.labelCurrentUserEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelCurrentUserFullName
+            // 
+            this.labelCurrentUserFullName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelCurrentUserFullName.Location = new System.Drawing.Point(20, 60);
+            this.labelCurrentUserFullName.Name = "labelCurrentUserFullName";
+            this.labelCurrentUserFullName.Size = new System.Drawing.Size(160, 30);
+            this.labelCurrentUserFullName.TabIndex = 1;
+            this.labelCurrentUserFullName.Text = "Full name";
+            this.labelCurrentUserFullName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelCurrentUser
+            // 
+            this.labelCurrentUser.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelCurrentUser.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.labelCurrentUser.Location = new System.Drawing.Point(20, 20);
+            this.labelCurrentUser.Name = "labelCurrentUser";
+            this.labelCurrentUser.Size = new System.Drawing.Size(160, 40);
+            this.labelCurrentUser.TabIndex = 0;
+            this.labelCurrentUser.Text = "Current user";
+            this.labelCurrentUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1008, 601);
+            this.Controls.Add(this.panelSide);
             this.Controls.Add(this.menuMain);
             this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -160,6 +282,9 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuMain.ResumeLayout(false);
             this.menuMain.PerformLayout();
+            this.panelSide.ResumeLayout(false);
+            this.panelOverview.ResumeLayout(false);
+            this.panelCurrentUser.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,6 +304,16 @@
         private System.Windows.Forms.ToolStripMenuItem menuItemAccount;
         private System.Windows.Forms.ToolStripMenuItem menuItemEditProfile;
         private System.Windows.Forms.ToolStripMenuItem menuItemExit;
+        private System.Windows.Forms.Panel panelSide;
+        private System.Windows.Forms.Panel panelOverview;
+        private System.Windows.Forms.Panel panelCurrentUser;
+        private System.Windows.Forms.Label labelCurrentUserFullName;
+        private System.Windows.Forms.Label labelCurrentUser;
+        private System.Windows.Forms.Label labelToday;
+        private System.Windows.Forms.Label labelCurrentUserEmail;
+        private System.Windows.Forms.Label labelTotalBookCount;
+        private System.Windows.Forms.Label labelBorrowingBookCount;
+        private System.Windows.Forms.Label labelOverview;
     }
 }
 
