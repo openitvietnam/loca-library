@@ -29,35 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditProfileForm));
-            this.panelActions = new System.Windows.Forms.Panel();
-            this.buttonSaveChanges = new System.Windows.Forms.Button();
             this.panelFullName = new System.Windows.Forms.Panel();
             this.inputFullName = new System.Windows.Forms.TextBox();
             this.labelFullName = new System.Windows.Forms.Label();
-            this.panelActions.SuspendLayout();
+            this.panelResetPassword = new System.Windows.Forms.Panel();
+            this.inputNewPassword = new System.Windows.Forms.TextBox();
+            this.labelNewPassword = new System.Windows.Forms.Label();
+            this.panelActions = new System.Windows.Forms.Panel();
+            this.buttonSaveChanges = new System.Windows.Forms.Button();
             this.panelFullName.SuspendLayout();
+            this.panelResetPassword.SuspendLayout();
+            this.panelActions.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panelActions
-            // 
-            this.panelActions.Controls.Add(this.buttonSaveChanges);
-            this.panelActions.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelActions.Location = new System.Drawing.Point(30, 95);
-            this.panelActions.Name = "panelActions";
-            this.panelActions.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.panelActions.Size = new System.Drawing.Size(284, 60);
-            this.panelActions.TabIndex = 4;
-            // 
-            // buttonSaveChanges
-            // 
-            this.buttonSaveChanges.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonSaveChanges.Location = new System.Drawing.Point(164, 10);
-            this.buttonSaveChanges.Name = "buttonSaveChanges";
-            this.buttonSaveChanges.Size = new System.Drawing.Size(120, 40);
-            this.buttonSaveChanges.TabIndex = 0;
-            this.buttonSaveChanges.Text = "Save changes";
-            this.buttonSaveChanges.UseVisualStyleBackColor = true;
-            this.buttonSaveChanges.Click += new System.EventHandler(this.buttonSaveChanges_Click);
             // 
             // panelFullName
             // 
@@ -87,13 +70,64 @@
             this.labelFullName.Text = "Full name";
             this.labelFullName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // panelResetPassword
+            // 
+            this.panelResetPassword.Controls.Add(this.inputNewPassword);
+            this.panelResetPassword.Controls.Add(this.labelNewPassword);
+            this.panelResetPassword.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelResetPassword.Location = new System.Drawing.Point(30, 95);
+            this.panelResetPassword.Name = "panelResetPassword";
+            this.panelResetPassword.Size = new System.Drawing.Size(284, 75);
+            this.panelResetPassword.TabIndex = 5;
+            // 
+            // inputNewPassword
+            // 
+            this.inputNewPassword.Dock = System.Windows.Forms.DockStyle.Top;
+            this.inputNewPassword.Location = new System.Drawing.Point(0, 35);
+            this.inputNewPassword.Name = "inputNewPassword";
+            this.inputNewPassword.Size = new System.Drawing.Size(284, 25);
+            this.inputNewPassword.TabIndex = 1;
+            this.inputNewPassword.UseSystemPasswordChar = true;
+            // 
+            // labelNewPassword
+            // 
+            this.labelNewPassword.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelNewPassword.Location = new System.Drawing.Point(0, 0);
+            this.labelNewPassword.Name = "labelNewPassword";
+            this.labelNewPassword.Size = new System.Drawing.Size(284, 35);
+            this.labelNewPassword.TabIndex = 0;
+            this.labelNewPassword.Text = "New password";
+            this.labelNewPassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panelActions
+            // 
+            this.panelActions.Controls.Add(this.buttonSaveChanges);
+            this.panelActions.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelActions.Location = new System.Drawing.Point(30, 170);
+            this.panelActions.Name = "panelActions";
+            this.panelActions.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.panelActions.Size = new System.Drawing.Size(284, 60);
+            this.panelActions.TabIndex = 6;
+            // 
+            // buttonSaveChanges
+            // 
+            this.buttonSaveChanges.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonSaveChanges.Location = new System.Drawing.Point(164, 10);
+            this.buttonSaveChanges.Name = "buttonSaveChanges";
+            this.buttonSaveChanges.Size = new System.Drawing.Size(120, 40);
+            this.buttonSaveChanges.TabIndex = 0;
+            this.buttonSaveChanges.Text = "Save changes";
+            this.buttonSaveChanges.UseVisualStyleBackColor = true;
+            this.buttonSaveChanges.Click += new System.EventHandler(this.buttonSaveChanges_Click);
+            // 
             // EditProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(344, 176);
+            this.ClientSize = new System.Drawing.Size(344, 256);
             this.Controls.Add(this.panelActions);
+            this.Controls.Add(this.panelResetPassword);
             this.Controls.Add(this.panelFullName);
             this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -105,19 +139,23 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit profile";
             this.Load += new System.EventHandler(this.EditProfileForm_Load);
-            this.panelActions.ResumeLayout(false);
             this.panelFullName.ResumeLayout(false);
             this.panelFullName.PerformLayout();
+            this.panelResetPassword.ResumeLayout(false);
+            this.panelResetPassword.PerformLayout();
+            this.panelActions.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panelActions;
-        private System.Windows.Forms.Button buttonSaveChanges;
         private System.Windows.Forms.Panel panelFullName;
         private System.Windows.Forms.TextBox inputFullName;
         private System.Windows.Forms.Label labelFullName;
+        private System.Windows.Forms.Panel panelResetPassword;
+        private System.Windows.Forms.TextBox inputNewPassword;
+        private System.Windows.Forms.Label labelNewPassword;
+        private System.Windows.Forms.Panel panelActions;
+        private System.Windows.Forms.Button buttonSaveChanges;
     }
 }

@@ -75,6 +75,36 @@ namespace LocaLibrary.App.Forms
             }
         }
 
+        private void updateNewPassword()
+        {
+            var newPassword = inputNewPassword.Text;
+            if (newPassword == "")
+            {
+                return;
+            }
+            var confirmResult = MessageBox.Show(
+                "Do you want to reset password?", "Confirm",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (confirmResult != DialogResult.Yes)
+            {
+                return;
+            }
+
+            var sql = @"UPDATE Employee
+                        SET PasswordHash = PWDENCRYPT(@NewPassword)
+                        WHERE Id = @Id";
+            var command = DatabaseService.CreateCommand(sql, CommandType.Text);
+            command.Parameters.AddWithValue("@Id", AuthService.UserLogin.Id);
+            command.Parameters.AddWithValue("@NewPassword", newPassword);
+
+            string error = null;
+            DatabaseService.Execute(command, ref error);
+            if (error != null)
+            {
+                MessageBox.Show(error, "Error");
+            }
+        }
+
         private void EditProfileForm_Load(object sender, EventArgs e)
         {
             checkLogin();
@@ -90,6 +120,7 @@ namespace LocaLibrary.App.Forms
                 return;
             }
             updateProfile();
+            updateNewPassword();
             Close();
         }
     }
