@@ -72,10 +72,12 @@ namespace LocaLibrary.App.Forms
 
         public void Create()
         {
-            var sql = @"INSERT INTO Employee(Email, FullName, IsAdmin, IsLocked)
-                        VALUES (@Email, @FullName, @IsAdmin, @IsLocked)";
+            var DEFAULT_PASSWORD = "123456";
+            var sql = @"INSERT INTO Employee(Email, PasswordHash, FullName, IsAdmin, IsLocked)
+                        VALUES (@Email, PWDENCRYPT(@DefaultPassword), @FullName, @IsAdmin, @IsLocked)";
             var command = DatabaseService.CreateCommand(sql, CommandType.Text);
             command.Parameters.AddWithValue("@Email", inputEmail.Text);
+            command.Parameters.AddWithValue("@DefaultPassword", DEFAULT_PASSWORD);
             command.Parameters.AddWithValue("@FullName", inputFullName.Text);
             command.Parameters.AddWithValue("@IsAdmin", checkIsAdmin.Checked);
             command.Parameters.AddWithValue("@IsLocked", checkIsLocked.Checked);
@@ -86,6 +88,7 @@ namespace LocaLibrary.App.Forms
             {
                 MessageBox.Show(error, "Error");
             }
+            MessageBox.Show("Default password for new user is " + DEFAULT_PASSWORD, "Information");
         }
 
         public void Update(string id)
