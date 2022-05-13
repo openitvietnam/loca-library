@@ -102,6 +102,7 @@
             this.menuItemMembers.Name = "menuItemMembers";
             this.menuItemMembers.Size = new System.Drawing.Size(180, 22);
             this.menuItemMembers.Text = "Members...";
+            this.menuItemMembers.Click += new System.EventHandler(this.menuItemMembers_Click);
             // 
             // menuItemCategorys
             // 
