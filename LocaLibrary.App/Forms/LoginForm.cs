@@ -67,14 +67,14 @@ namespace LocaLibrary.App.Forms
             {
                 return "Email and password do not match";
             }
-            if (dataTable.Rows[0]["IsLocked"].ToString() == "True")
+            if ((bool)dataTable.Rows[0]["IsLocked"])
             {
                 return "Account is locked";
             }
 
             userLogin = new UserLogin(
-                int.Parse(dataTable.Rows[0]["Id"].ToString()),
-                dataTable.Rows[0]["IsAdmin"].ToString() == "True");
+                (int)dataTable.Rows[0]["Id"], 
+                (bool)dataTable.Rows[0]["IsAdmin"]);
             return null;
         }
 
