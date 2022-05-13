@@ -51,10 +51,25 @@
             this.labelCurrentUserEmail = new System.Windows.Forms.Label();
             this.labelCurrentUserFullName = new System.Windows.Forms.Label();
             this.labelCurrentUser = new System.Windows.Forms.Label();
+            this.panelInfo = new System.Windows.Forms.Panel();
+            this.gridBookBorrows = new System.Windows.Forms.DataGridView();
+            this.panelAction = new System.Windows.Forms.Panel();
+            this.buttonReload = new System.Windows.Forms.Button();
+            this.buttonBorrow = new System.Windows.Forms.Button();
+            this.buttonReturn = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonSelectMember = new System.Windows.Forms.Button();
+            this.buttonSelectBook = new System.Windows.Forms.Button();
+            this.dateExpectedReturnDate = new System.Windows.Forms.DateTimePicker();
             this.menuMain.SuspendLayout();
             this.panelSide.SuspendLayout();
             this.panelOverview.SuspendLayout();
             this.panelCurrentUser.SuspendLayout();
+            this.panelInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridBookBorrows)).BeginInit();
+            this.panelAction.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuMain
@@ -107,28 +122,28 @@
             // menuItemEmployees
             // 
             this.menuItemEmployees.Name = "menuItemEmployees";
-            this.menuItemEmployees.Size = new System.Drawing.Size(140, 22);
+            this.menuItemEmployees.Size = new System.Drawing.Size(180, 22);
             this.menuItemEmployees.Text = "Employees...";
             this.menuItemEmployees.Click += new System.EventHandler(this.menuItemEmployees_Click);
             // 
             // menuItemMembers
             // 
             this.menuItemMembers.Name = "menuItemMembers";
-            this.menuItemMembers.Size = new System.Drawing.Size(140, 22);
+            this.menuItemMembers.Size = new System.Drawing.Size(180, 22);
             this.menuItemMembers.Text = "Members...";
             this.menuItemMembers.Click += new System.EventHandler(this.menuItemMembers_Click);
             // 
             // menuItemCategorys
             // 
             this.menuItemCategorys.Name = "menuItemCategorys";
-            this.menuItemCategorys.Size = new System.Drawing.Size(140, 22);
+            this.menuItemCategorys.Size = new System.Drawing.Size(180, 22);
             this.menuItemCategorys.Text = "Categories...";
             this.menuItemCategorys.Click += new System.EventHandler(this.menuItemCategorys_Click);
             // 
             // menuItemBooks
             // 
             this.menuItemBooks.Name = "menuItemBooks";
-            this.menuItemBooks.Size = new System.Drawing.Size(140, 22);
+            this.menuItemBooks.Size = new System.Drawing.Size(180, 22);
             this.menuItemBooks.Text = "Books...";
             this.menuItemBooks.Click += new System.EventHandler(this.menuItemBooks_Click);
             // 
@@ -263,12 +278,143 @@
             this.labelCurrentUser.Text = "Current user";
             this.labelCurrentUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panelInfo
+            // 
+            this.panelInfo.Controls.Add(this.buttonSelectBook);
+            this.panelInfo.Controls.Add(this.buttonSelectMember);
+            this.panelInfo.Controls.Add(this.panel1);
+            this.panelInfo.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelInfo.Location = new System.Drawing.Point(768, 24);
+            this.panelInfo.Name = "panelInfo";
+            this.panelInfo.Padding = new System.Windows.Forms.Padding(20);
+            this.panelInfo.Size = new System.Drawing.Size(240, 577);
+            this.panelInfo.TabIndex = 8;
+            // 
+            // gridBookBorrows
+            // 
+            this.gridBookBorrows.AllowUserToAddRows = false;
+            this.gridBookBorrows.AllowUserToDeleteRows = false;
+            this.gridBookBorrows.AllowUserToResizeRows = false;
+            this.gridBookBorrows.BackgroundColor = System.Drawing.Color.White;
+            this.gridBookBorrows.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridBookBorrows.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gridBookBorrows.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridBookBorrows.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridBookBorrows.GridColor = System.Drawing.Color.LightGray;
+            this.gridBookBorrows.Location = new System.Drawing.Point(200, 24);
+            this.gridBookBorrows.Name = "gridBookBorrows";
+            this.gridBookBorrows.ReadOnly = true;
+            this.gridBookBorrows.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gridBookBorrows.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridBookBorrows.Size = new System.Drawing.Size(568, 577);
+            this.gridBookBorrows.TabIndex = 9;
+            this.gridBookBorrows.SelectionChanged += new System.EventHandler(this.gridBookBorrows_SelectionChanged);
+            // 
+            // panelAction
+            // 
+            this.panelAction.Controls.Add(this.buttonReturn);
+            this.panelAction.Controls.Add(this.buttonBorrow);
+            this.panelAction.Controls.Add(this.buttonReload);
+            this.panelAction.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelAction.Location = new System.Drawing.Point(200, 541);
+            this.panelAction.Name = "panelAction";
+            this.panelAction.Padding = new System.Windows.Forms.Padding(10);
+            this.panelAction.Size = new System.Drawing.Size(568, 60);
+            this.panelAction.TabIndex = 10;
+            // 
+            // buttonReload
+            // 
+            this.buttonReload.Dock = System.Windows.Forms.DockStyle.Left;
+            this.buttonReload.Location = new System.Drawing.Point(10, 10);
+            this.buttonReload.Name = "buttonReload";
+            this.buttonReload.Size = new System.Drawing.Size(100, 40);
+            this.buttonReload.TabIndex = 11;
+            this.buttonReload.Text = "Reload";
+            this.buttonReload.UseVisualStyleBackColor = true;
+            this.buttonReload.Click += new System.EventHandler(this.buttonReload_Click);
+            // 
+            // buttonBorrow
+            // 
+            this.buttonBorrow.Dock = System.Windows.Forms.DockStyle.Left;
+            this.buttonBorrow.Location = new System.Drawing.Point(110, 10);
+            this.buttonBorrow.Name = "buttonBorrow";
+            this.buttonBorrow.Size = new System.Drawing.Size(110, 40);
+            this.buttonBorrow.TabIndex = 13;
+            this.buttonBorrow.Text = "Borrow book";
+            this.buttonBorrow.UseVisualStyleBackColor = true;
+            this.buttonBorrow.Click += new System.EventHandler(this.buttonBorrow_Click);
+            // 
+            // buttonReturn
+            // 
+            this.buttonReturn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.buttonReturn.Location = new System.Drawing.Point(220, 10);
+            this.buttonReturn.Name = "buttonReturn";
+            this.buttonReturn.Size = new System.Drawing.Size(110, 40);
+            this.buttonReturn.TabIndex = 14;
+            this.buttonReturn.Text = "Return book";
+            this.buttonReturn.UseVisualStyleBackColor = true;
+            this.buttonReturn.Click += new System.EventHandler(this.buttonReturn_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dateExpectedReturnDate);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(20, 20);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 75);
+            this.panel1.TabIndex = 15;
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(200, 35);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Expected return date";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // buttonSelectMember
+            // 
+            this.buttonSelectMember.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonSelectMember.Location = new System.Drawing.Point(20, 95);
+            this.buttonSelectMember.Name = "buttonSelectMember";
+            this.buttonSelectMember.Size = new System.Drawing.Size(200, 40);
+            this.buttonSelectMember.TabIndex = 16;
+            this.buttonSelectMember.Tag = "0";
+            this.buttonSelectMember.Text = "Select member";
+            this.buttonSelectMember.UseVisualStyleBackColor = true;
+            // 
+            // buttonSelectBook
+            // 
+            this.buttonSelectBook.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonSelectBook.Location = new System.Drawing.Point(20, 135);
+            this.buttonSelectBook.Name = "buttonSelectBook";
+            this.buttonSelectBook.Size = new System.Drawing.Size(200, 40);
+            this.buttonSelectBook.TabIndex = 17;
+            this.buttonSelectBook.Tag = "3";
+            this.buttonSelectBook.Text = "Select book";
+            this.buttonSelectBook.UseVisualStyleBackColor = true;
+            // 
+            // dateExpectedReturnDate
+            // 
+            this.dateExpectedReturnDate.CustomFormat = "dd/MM/yyyy";
+            this.dateExpectedReturnDate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dateExpectedReturnDate.Location = new System.Drawing.Point(0, 35);
+            this.dateExpectedReturnDate.Name = "dateExpectedReturnDate";
+            this.dateExpectedReturnDate.Size = new System.Drawing.Size(200, 25);
+            this.dateExpectedReturnDate.TabIndex = 2;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1008, 601);
+            this.Controls.Add(this.panelAction);
+            this.Controls.Add(this.gridBookBorrows);
+            this.Controls.Add(this.panelInfo);
             this.Controls.Add(this.panelSide);
             this.Controls.Add(this.menuMain);
             this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -285,6 +431,10 @@
             this.panelSide.ResumeLayout(false);
             this.panelOverview.ResumeLayout(false);
             this.panelCurrentUser.ResumeLayout(false);
+            this.panelInfo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridBookBorrows)).EndInit();
+            this.panelAction.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -314,6 +464,17 @@
         private System.Windows.Forms.Label labelTotalBookCount;
         private System.Windows.Forms.Label labelBorrowingBookCount;
         private System.Windows.Forms.Label labelOverview;
+        private System.Windows.Forms.Panel panelInfo;
+        private System.Windows.Forms.DataGridView gridBookBorrows;
+        private System.Windows.Forms.Panel panelAction;
+        private System.Windows.Forms.Button buttonReturn;
+        private System.Windows.Forms.Button buttonBorrow;
+        private System.Windows.Forms.Button buttonReload;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonSelectBook;
+        private System.Windows.Forms.Button buttonSelectMember;
+        private System.Windows.Forms.DateTimePicker dateExpectedReturnDate;
     }
 }
 
