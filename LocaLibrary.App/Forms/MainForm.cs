@@ -204,12 +204,38 @@ namespace LocaLibrary.App
             labelToday.Text = DateTime.Today.ToString("dd/MM/yyyy");
 
             // Load book overview
-            var borrowingBookCount = 0;
-            var totalBookCount = 0;
+            var borrowingBookCount = getBorrowingBookCount();
+            var totalBookCount = getTotalBookCount();
             labelBorrowingBookCount.Text = String.Format("Borrowing: {0}", borrowingBookCount);
             labelTotalBookCount.Text = String.Format("Total: {0}", totalBookCount);
 
             LoadAll();
+        }
+
+        private int getBorrowingBookCount()
+        {
+            var sql = @"SELECT count(Id) FROM BookBorrow WHERE IsDone = 0";
+            var command = DatabaseService.CreateCommand(sql, CommandType.Text);
+            string error = null;
+            var value = DatabaseService.GetValue(command, ref error);
+            if (error != null)
+            {
+                return 0;
+            }
+            return (int)value;
+        }
+
+        private int getTotalBookCount()
+        {
+            var sql = @"SELECT count(Id) FROM Book";
+            var command = DatabaseService.CreateCommand(sql, CommandType.Text);
+            string error = null;
+            var value = DatabaseService.GetValue(command, ref error);
+            if (error != null)
+            {
+                return 0;
+            }
+            return (int)value;
         }
 
         private void gridBookBorrows_SelectionChanged(object sender, EventArgs e)
