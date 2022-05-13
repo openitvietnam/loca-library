@@ -27,5 +27,10 @@ namespace LocaLibrary.App.Forms
         {
             OpenMainForm();
         }
+
+        private void linkForgetPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show("Contact any admins for a new password", "Information");
+        }
     }
 }
