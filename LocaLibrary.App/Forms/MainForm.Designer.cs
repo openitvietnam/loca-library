@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuMain = new System.Windows.Forms.MenuStrip();
+            this.menuItemAccount = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemEditProfile = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemExit = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemManage = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemEmployees = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemMembers = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,9 +41,6 @@
             this.menuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemCheckForUpdates = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemEditProfile = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemAccount = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +56,29 @@
             this.menuMain.Size = new System.Drawing.Size(1008, 24);
             this.menuMain.TabIndex = 0;
             this.menuMain.Text = "menuStrip1";
+            // 
+            // menuItemAccount
+            // 
+            this.menuItemAccount.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemEditProfile,
+            this.menuItemExit});
+            this.menuItemAccount.Name = "menuItemAccount";
+            this.menuItemAccount.Size = new System.Drawing.Size(64, 20);
+            this.menuItemAccount.Text = "Account";
+            // 
+            // menuItemEditProfile
+            // 
+            this.menuItemEditProfile.Name = "menuItemEditProfile";
+            this.menuItemEditProfile.Size = new System.Drawing.Size(180, 22);
+            this.menuItemEditProfile.Text = "Edit Profile...";
+            this.menuItemEditProfile.Click += new System.EventHandler(this.menuItemEditProfile_Click);
+            // 
+            // menuItemExit
+            // 
+            this.menuItemExit.Name = "menuItemExit";
+            this.menuItemExit.Size = new System.Drawing.Size(180, 22);
+            this.menuItemExit.Text = "Exit";
+            this.menuItemExit.Click += new System.EventHandler(this.menuItemExit_Click);
             // 
             // menuItemManage
             // 
@@ -91,6 +114,7 @@
             this.menuItemBooks.Name = "menuItemBooks";
             this.menuItemBooks.Size = new System.Drawing.Size(180, 22);
             this.menuItemBooks.Text = "Books...";
+            this.menuItemBooks.Click += new System.EventHandler(this.menuItemBooks_Click);
             // 
             // menuItemHelp
             // 
@@ -104,39 +128,16 @@
             // menuItemCheckForUpdates
             // 
             this.menuItemCheckForUpdates.Name = "menuItemCheckForUpdates";
-            this.menuItemCheckForUpdates.Size = new System.Drawing.Size(174, 22);
+            this.menuItemCheckForUpdates.Size = new System.Drawing.Size(180, 22);
             this.menuItemCheckForUpdates.Text = "Check for Updates";
             this.menuItemCheckForUpdates.Click += new System.EventHandler(this.menuItemCheckForUpdates_Click);
             // 
             // menuItemAbout
             // 
             this.menuItemAbout.Name = "menuItemAbout";
-            this.menuItemAbout.Size = new System.Drawing.Size(174, 22);
+            this.menuItemAbout.Size = new System.Drawing.Size(180, 22);
             this.menuItemAbout.Text = "About Loca Library";
             this.menuItemAbout.Click += new System.EventHandler(this.menuItemAbout_Click);
-            // 
-            // menuItemEditProfile
-            // 
-            this.menuItemEditProfile.Name = "menuItemEditProfile";
-            this.menuItemEditProfile.Size = new System.Drawing.Size(180, 22);
-            this.menuItemEditProfile.Text = "Edit Profile...";
-            this.menuItemEditProfile.Click += new System.EventHandler(this.menuItemEditProfile_Click);
-            // 
-            // menuItemExit
-            // 
-            this.menuItemExit.Name = "menuItemExit";
-            this.menuItemExit.Size = new System.Drawing.Size(180, 22);
-            this.menuItemExit.Text = "Exit";
-            this.menuItemExit.Click += new System.EventHandler(this.menuItemExit_Click);
-            // 
-            // menuItemAccount
-            // 
-            this.menuItemAccount.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItemEditProfile,
-            this.menuItemExit});
-            this.menuItemAccount.Name = "menuItemAccount";
-            this.menuItemAccount.Size = new System.Drawing.Size(64, 20);
-            this.menuItemAccount.Text = "Account";
             // 
             // MainForm
             // 

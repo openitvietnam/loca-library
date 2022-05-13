@@ -59,5 +59,10 @@ namespace LocaLibrary.App
         {
             new EditProfileForm().ShowDialog();
         }
+
+        private void menuItemBooks_Click(object sender, EventArgs e)
+        {
+            new BookForm().ShowDialog();
+        }
     }
 }
