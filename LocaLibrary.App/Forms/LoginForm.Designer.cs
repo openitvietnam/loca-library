@@ -119,10 +119,10 @@
             this.inputPassword.Dock = System.Windows.Forms.DockStyle.Top;
             this.inputPassword.Location = new System.Drawing.Point(0, 35);
             this.inputPassword.Name = "inputPassword";
-            this.inputPassword.PasswordChar = '*';
             this.inputPassword.Size = new System.Drawing.Size(244, 25);
             this.inputPassword.TabIndex = 3;
             this.inputPassword.Text = "123456";
+            this.inputPassword.UseSystemPasswordChar = true;
             // 
             // labelPassword
             // 
