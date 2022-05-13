@@ -79,5 +79,13 @@ namespace LocaLibrary.App
         {
             new EmployeeForm().ShowDialog();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            if (!AuthService.UserLogin.IsAdmin)
+            {
+                menuItemManage.Enabled = false;
+            }
+        }
     }
 }

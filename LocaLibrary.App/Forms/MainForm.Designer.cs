@@ -94,28 +94,28 @@
             // menuItemEmployees
             // 
             this.menuItemEmployees.Name = "menuItemEmployees";
-            this.menuItemEmployees.Size = new System.Drawing.Size(180, 22);
+            this.menuItemEmployees.Size = new System.Drawing.Size(140, 22);
             this.menuItemEmployees.Text = "Employees...";
             this.menuItemEmployees.Click += new System.EventHandler(this.menuItemEmployees_Click);
             // 
             // menuItemMembers
             // 
             this.menuItemMembers.Name = "menuItemMembers";
-            this.menuItemMembers.Size = new System.Drawing.Size(180, 22);
+            this.menuItemMembers.Size = new System.Drawing.Size(140, 22);
             this.menuItemMembers.Text = "Members...";
             this.menuItemMembers.Click += new System.EventHandler(this.menuItemMembers_Click);
             // 
             // menuItemCategorys
             // 
             this.menuItemCategorys.Name = "menuItemCategorys";
-            this.menuItemCategorys.Size = new System.Drawing.Size(180, 22);
+            this.menuItemCategorys.Size = new System.Drawing.Size(140, 22);
             this.menuItemCategorys.Text = "Categories...";
             this.menuItemCategorys.Click += new System.EventHandler(this.menuItemCategorys_Click);
             // 
             // menuItemBooks
             // 
             this.menuItemBooks.Name = "menuItemBooks";
-            this.menuItemBooks.Size = new System.Drawing.Size(180, 22);
+            this.menuItemBooks.Size = new System.Drawing.Size(140, 22);
             this.menuItemBooks.Text = "Books...";
             this.menuItemBooks.Click += new System.EventHandler(this.menuItemBooks_Click);
             // 
@@ -157,6 +157,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loca Library";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuMain.ResumeLayout(false);
             this.menuMain.PerformLayout();
             this.ResumeLayout(false);
