@@ -69,14 +69,14 @@
             // menuItemEditProfile
             // 
             this.menuItemEditProfile.Name = "menuItemEditProfile";
-            this.menuItemEditProfile.Size = new System.Drawing.Size(180, 22);
+            this.menuItemEditProfile.Size = new System.Drawing.Size(140, 22);
             this.menuItemEditProfile.Text = "Edit Profile...";
             this.menuItemEditProfile.Click += new System.EventHandler(this.menuItemEditProfile_Click);
             // 
             // menuItemExit
             // 
             this.menuItemExit.Name = "menuItemExit";
-            this.menuItemExit.Size = new System.Drawing.Size(180, 22);
+            this.menuItemExit.Size = new System.Drawing.Size(140, 22);
             this.menuItemExit.Text = "Exit";
             this.menuItemExit.Click += new System.EventHandler(this.menuItemExit_Click);
             // 
@@ -108,6 +108,7 @@
             this.menuItemCategorys.Name = "menuItemCategorys";
             this.menuItemCategorys.Size = new System.Drawing.Size(180, 22);
             this.menuItemCategorys.Text = "Categories...";
+            this.menuItemCategorys.Click += new System.EventHandler(this.menuItemCategorys_Click);
             // 
             // menuItemBooks
             // 
@@ -128,14 +129,14 @@
             // menuItemCheckForUpdates
             // 
             this.menuItemCheckForUpdates.Name = "menuItemCheckForUpdates";
-            this.menuItemCheckForUpdates.Size = new System.Drawing.Size(180, 22);
+            this.menuItemCheckForUpdates.Size = new System.Drawing.Size(174, 22);
             this.menuItemCheckForUpdates.Text = "Check for Updates";
             this.menuItemCheckForUpdates.Click += new System.EventHandler(this.menuItemCheckForUpdates_Click);
             // 
             // menuItemAbout
             // 
             this.menuItemAbout.Name = "menuItemAbout";
-            this.menuItemAbout.Size = new System.Drawing.Size(180, 22);
+            this.menuItemAbout.Size = new System.Drawing.Size(174, 22);
             this.menuItemAbout.Text = "About Loca Library";
             this.menuItemAbout.Click += new System.EventHandler(this.menuItemAbout_Click);
             // 

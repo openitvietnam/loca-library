@@ -64,5 +64,10 @@ namespace LocaLibrary.App
         {
             new BookForm().ShowDialog();
         }
+
+        private void menuItemCategorys_Click(object sender, EventArgs e)
+        {
+            new CategoryForm().ShowDialog();
+        }
     }
 }
