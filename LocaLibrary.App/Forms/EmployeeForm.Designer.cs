@@ -37,6 +37,7 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.panelInfo = new System.Windows.Forms.Panel();
             this.panelCheck = new System.Windows.Forms.Panel();
+            this.checkIsLocked = new System.Windows.Forms.CheckBox();
             this.checkIsAdmin = new System.Windows.Forms.CheckBox();
             this.panelFullName = new System.Windows.Forms.Panel();
             this.inputFullName = new System.Windows.Forms.TextBox();
@@ -44,13 +45,17 @@
             this.panelEmail = new System.Windows.Forms.Panel();
             this.inputEmail = new System.Windows.Forms.TextBox();
             this.labelEmail = new System.Windows.Forms.Label();
-            this.checkIsLocked = new System.Windows.Forms.CheckBox();
+            this.panelResetPassword = new System.Windows.Forms.Panel();
+            this.inputNewPassword = new System.Windows.Forms.TextBox();
+            this.labelNewPassword = new System.Windows.Forms.Label();
+            this.buttonResetPassword = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridEmployees)).BeginInit();
             this.panelAction.SuspendLayout();
             this.panelInfo.SuspendLayout();
             this.panelCheck.SuspendLayout();
             this.panelFullName.SuspendLayout();
             this.panelEmail.SuspendLayout();
+            this.panelResetPassword.SuspendLayout();
             this.SuspendLayout();
             // 
             // gridEmployees
@@ -133,6 +138,7 @@
             // panelInfo
             // 
             this.panelInfo.AutoScroll = true;
+            this.panelInfo.Controls.Add(this.panelResetPassword);
             this.panelInfo.Controls.Add(this.panelCheck);
             this.panelInfo.Controls.Add(this.panelFullName);
             this.panelInfo.Controls.Add(this.panelEmail);
@@ -152,6 +158,17 @@
             this.panelCheck.Name = "panelCheck";
             this.panelCheck.Size = new System.Drawing.Size(200, 60);
             this.panelCheck.TabIndex = 15;
+            // 
+            // checkIsLocked
+            // 
+            this.checkIsLocked.AutoSize = true;
+            this.checkIsLocked.Dock = System.Windows.Forms.DockStyle.Top;
+            this.checkIsLocked.Location = new System.Drawing.Point(0, 23);
+            this.checkIsLocked.Name = "checkIsLocked";
+            this.checkIsLocked.Size = new System.Drawing.Size(200, 23);
+            this.checkIsLocked.TabIndex = 2;
+            this.checkIsLocked.Text = "Is locked";
+            this.checkIsLocked.UseVisualStyleBackColor = true;
             // 
             // checkIsAdmin
             // 
@@ -220,16 +237,46 @@
             this.labelEmail.Text = "Email";
             this.labelEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // checkIsLocked
+            // panelResetPassword
             // 
-            this.checkIsLocked.AutoSize = true;
-            this.checkIsLocked.Dock = System.Windows.Forms.DockStyle.Top;
-            this.checkIsLocked.Location = new System.Drawing.Point(0, 23);
-            this.checkIsLocked.Name = "checkIsLocked";
-            this.checkIsLocked.Size = new System.Drawing.Size(200, 23);
-            this.checkIsLocked.TabIndex = 2;
-            this.checkIsLocked.Text = "Is locked";
-            this.checkIsLocked.UseVisualStyleBackColor = true;
+            this.panelResetPassword.Controls.Add(this.buttonResetPassword);
+            this.panelResetPassword.Controls.Add(this.inputNewPassword);
+            this.panelResetPassword.Controls.Add(this.labelNewPassword);
+            this.panelResetPassword.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelResetPassword.Location = new System.Drawing.Point(20, 366);
+            this.panelResetPassword.Name = "panelResetPassword";
+            this.panelResetPassword.Size = new System.Drawing.Size(200, 115);
+            this.panelResetPassword.TabIndex = 16;
+            // 
+            // inputNewPassword
+            // 
+            this.inputNewPassword.Dock = System.Windows.Forms.DockStyle.Top;
+            this.inputNewPassword.Location = new System.Drawing.Point(0, 35);
+            this.inputNewPassword.Name = "inputNewPassword";
+            this.inputNewPassword.Size = new System.Drawing.Size(200, 25);
+            this.inputNewPassword.TabIndex = 1;
+            this.inputNewPassword.UseSystemPasswordChar = true;
+            // 
+            // labelNewPassword
+            // 
+            this.labelNewPassword.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelNewPassword.Location = new System.Drawing.Point(0, 0);
+            this.labelNewPassword.Name = "labelNewPassword";
+            this.labelNewPassword.Size = new System.Drawing.Size(200, 35);
+            this.labelNewPassword.TabIndex = 0;
+            this.labelNewPassword.Text = "New password";
+            this.labelNewPassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // buttonResetPassword
+            // 
+            this.buttonResetPassword.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.buttonResetPassword.Location = new System.Drawing.Point(0, 75);
+            this.buttonResetPassword.Name = "buttonResetPassword";
+            this.buttonResetPassword.Size = new System.Drawing.Size(200, 40);
+            this.buttonResetPassword.TabIndex = 2;
+            this.buttonResetPassword.Text = "Reset password";
+            this.buttonResetPassword.UseVisualStyleBackColor = true;
+            this.buttonResetPassword.Click += new System.EventHandler(this.buttonResetPassword_Click);
             // 
             // EmployeeForm
             // 
@@ -256,6 +303,8 @@
             this.panelFullName.PerformLayout();
             this.panelEmail.ResumeLayout(false);
             this.panelEmail.PerformLayout();
+            this.panelResetPassword.ResumeLayout(false);
+            this.panelResetPassword.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -278,5 +327,9 @@
         private System.Windows.Forms.Label labelEmail;
         private System.Windows.Forms.CheckBox checkIsAdmin;
         private System.Windows.Forms.CheckBox checkIsLocked;
+        private System.Windows.Forms.Panel panelResetPassword;
+        private System.Windows.Forms.Button buttonResetPassword;
+        private System.Windows.Forms.TextBox inputNewPassword;
+        private System.Windows.Forms.Label labelNewPassword;
     }
 }

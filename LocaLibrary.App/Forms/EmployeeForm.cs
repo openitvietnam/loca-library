@@ -41,6 +41,7 @@ namespace LocaLibrary.App.Forms
             inputFullName.Clear();
             checkIsAdmin.Checked = false;
             checkIsLocked.Checked = false;
+            inputNewPassword.Clear();
         }
 
         public string ValidateForm()
@@ -187,6 +188,42 @@ namespace LocaLibrary.App.Forms
         private void EmployeeForm_Load(object sender, EventArgs e)
         {
             LoadAll();
+        }
+
+        private void buttonResetPassword_Click(object sender, EventArgs e)
+        {
+            var selectedId = GetSelectedId();
+            if (selectedId == null)
+            {
+                return;
+            }
+            var newPassword = inputNewPassword.Text;
+            if (newPassword == "")
+            {
+                MessageBox.Show("New password is required", "Error");
+                return;
+            }
+            var confirmResult = MessageBox.Show(
+                "Do you want to reset password for this employee?", "Confirm",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (confirmResult != DialogResult.Yes)
+            {
+                return;
+            }
+
+            var sql = @"UPDATE Employee
+                        SET PasswordHash = PWDENCRYPT(@NewPassword)
+                        WHERE Id = @Id";
+            var command = DatabaseService.CreateCommand(sql, CommandType.Text);
+            command.Parameters.AddWithValue("@Id", selectedId);
+            command.Parameters.AddWithValue("@NewPassword", newPassword);
+
+            string error = null;
+            DatabaseService.Execute(command, ref error);
+            if (error != null)
+            {
+                MessageBox.Show(error, "Error");
+            }
         }
     }
 }
