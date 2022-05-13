@@ -25,8 +25,8 @@ DBCC CHECKIDENT ('Category', RESEED, 0);
 PRINT 'Reset id for tables without foreign keys';
 
 -- Insert Admin employee
-INSERT INTO Employee(Email, PasswordHash, FullName)
-    VALUES ('admin@gmail.com', PWDENCRYPT(N'123456'), N'Admin');
+INSERT INTO Employee(Email, PasswordHash, FullName, IsAdmin)
+    VALUES ('admin@gmail.com', PWDENCRYPT(N'123456'), N'Admin', 1);
 PRINT 'Inserted employees';
 
 USE master;
