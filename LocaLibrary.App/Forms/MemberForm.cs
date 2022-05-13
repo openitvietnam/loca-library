@@ -8,36 +8,42 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using LocaLibrary.App.Commons;
 using LocaLibrary.App.Services;
 
 namespace LocaLibrary.App.Forms
 {
-    public partial class MemberForm : Form
+    public partial class MemberForm : Form, ICrudForm
     {
         public MemberForm()
         {
             InitializeComponent();
         }
 
-        private string getSelectedId()
+        public DataGridView GetGrid()
         {
-            if (gridMembers.SelectedRows.Count == 0)
+            return gridMembers;
+        }
+
+        public string GetSelectedId()
+        {
+            if (GetGrid().SelectedRows.Count == 0)
             {
                 return null;
             }
-            return gridMembers.SelectedRows[0].Cells["Id"].Value.ToString();
+            return GetGrid().SelectedRows[0].Cells["Id"].Value.ToString();
         }
 
-        private void emptyForm()
+        public void EmptyForm()
         {
-            gridMembers.ClearSelection();
+            GetGrid().ClearSelection();
             inputCode.Clear();
             inputFullName.Clear();
             inputClassName.Clear();
             inputStartYear.Clear();
         }
 
-        private string validateForm()
+        public string ValidateForm()
         {
             var code = inputCode.Text;
             var fullName = inputFullName.Text;
@@ -63,7 +69,7 @@ namespace LocaLibrary.App.Forms
             return null;
         }
 
-        private void loadMembers()
+        public void LoadAll()
         {
             var sql = "SELECT * FROM Member";
             var command = DatabaseService.CreateCommand(sql, CommandType.Text);
@@ -74,10 +80,10 @@ namespace LocaLibrary.App.Forms
                 MessageBox.Show(error, "Error");
                 return;
             }
-            gridMembers.DataSource = dataTable;
+            GetGrid().DataSource = dataTable;
         }
 
-        private void createMember()
+        public void Create()
         {
             var sql = @"INSERT INTO Member(Code, FullName, ClassName, StartYear)
                         VALUES (@Code, @FullName, @ClassName, @StartYear)";
@@ -95,7 +101,7 @@ namespace LocaLibrary.App.Forms
             }
         }
 
-        private void updateMember(string id)
+        public void Update(string id)
         {
             var sql = @"UPDATE Member
                         SET Code = @Code, FullName = @FullName, ClassName = @ClassName, StartYear = @StartYear
@@ -115,7 +121,7 @@ namespace LocaLibrary.App.Forms
             }
         }
 
-        private void deleteMember(string id)
+        public void Delete(string id)
         {
             var sql = @"DELETE FROM Member WHERE Id = @Id";
             var command = DatabaseService.CreateCommand(sql, CommandType.Text);
@@ -131,16 +137,16 @@ namespace LocaLibrary.App.Forms
 
         private void MemberForm_Load(object sender, EventArgs e)
         {
-            loadMembers();
+            LoadAll();
         }
 
         private void gridMembers_SelectionChanged(object sender, EventArgs e)
         {
-            if (gridMembers.SelectedRows.Count == 0)
+            if (GetGrid().SelectedRows.Count == 0)
             {
                 return;
             }
-            var row = gridMembers.SelectedRows[0];
+            var row = GetGrid().SelectedRows[0];
 
             inputCode.Text = row.Cells["Code"].Value.ToString();
             inputFullName.Text = row.Cells["FullName"].Value.ToString();
@@ -150,51 +156,51 @@ namespace LocaLibrary.App.Forms
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            var selectedId = getSelectedId();
+            var selectedId = GetSelectedId();
             if (selectedId == null)
             {
                 return;
             }
-            deleteMember(selectedId);
-            loadMembers();
-            emptyForm();
+            Delete(selectedId);
+            LoadAll();
+            EmptyForm();
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            var selectedId = getSelectedId();
+            var selectedId = GetSelectedId();
             if (selectedId == null)
             {
                 return;
             }
-            var error = validateForm();
+            var error = ValidateForm();
             if (error != null)
             {
                 MessageBox.Show(error, "Error");
                 return;
             }
-            updateMember(selectedId);
-            loadMembers();
-            emptyForm();
+            Update(selectedId);
+            LoadAll();
+            EmptyForm();
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            var error = validateForm();
+            var error = ValidateForm();
             if (error != null)
             {
                 MessageBox.Show(error, "Error");
                 return;
             }
-            createMember();
-            loadMembers();
-            emptyForm();
+            Create();
+            LoadAll();
+            EmptyForm();
         }
 
         private void buttonReload_Click(object sender, EventArgs e)
         {
-            loadMembers();
-            emptyForm();
+            LoadAll();
+            EmptyForm();
         }
     }
 }

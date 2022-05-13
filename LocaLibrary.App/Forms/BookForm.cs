@@ -8,29 +8,35 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using LocaLibrary.App.Commons;
 using LocaLibrary.App.Services;
 
 namespace LocaLibrary.App.Forms
 {
-    public partial class BookForm : Form
+    public partial class BookForm : Form, ICrudForm
     {
         public BookForm()
         {
             InitializeComponent();
         }
 
-        private string getSelectedId()
+        public DataGridView GetGrid()
         {
-            if (gridBooks.SelectedRows.Count == 0)
+            return gridBooks;
+        }
+
+        public string GetSelectedId()
+        {
+            if (GetGrid().SelectedRows.Count == 0)
             {
                 return null;
             }
-            return gridBooks.SelectedRows[0].Cells["Id"].Value.ToString();
+            return GetGrid().SelectedRows[0].Cells["Id"].Value.ToString();
         }
 
-        private void emptyForm()
+        public void EmptyForm()
         {
-            gridBooks.ClearSelection();
+            GetGrid().ClearSelection();
             inputTitle.Clear();
             inputAuthor.Clear();
             inputPublisher.Clear();
@@ -39,7 +45,7 @@ namespace LocaLibrary.App.Forms
             inputPrice.Clear();
         }
 
-        private string validateForm()
+        public string ValidateForm()
         {
             var title = inputTitle.Text;
             var author = inputAuthor.Text;
@@ -80,7 +86,7 @@ namespace LocaLibrary.App.Forms
             return null;
         }
 
-        private void loadBooks()
+        public void LoadAll()
         {
             var sql = "SELECT * FROM Book";
             var command = DatabaseService.CreateCommand(sql, CommandType.Text);
@@ -91,10 +97,10 @@ namespace LocaLibrary.App.Forms
                 MessageBox.Show(error, "Error");
                 return;
             }
-            gridBooks.DataSource = dataTable;
+            GetGrid().DataSource = dataTable;
         }
 
-        private void createBook()
+        public void Create()
         {
             var sql = @"INSERT INTO Book(Title, Author, Publisher, PublishYear, Language, Price)
                         VALUES (@Title, @Author, @Publisher, @PublishYear, @Language, @Price)";
@@ -114,7 +120,7 @@ namespace LocaLibrary.App.Forms
             }
         }
 
-        private void updateBook(string id)
+        public void Update(string id)
         {
             var sql = @"UPDATE Book
                         SET Title = @Title, Author = @Author, Publisher = @Publisher,
@@ -137,7 +143,7 @@ namespace LocaLibrary.App.Forms
             }
         }
 
-        private void deleteBook(string id)
+        public void Delete(string id)
         {
             var sql = @"DELETE FROM Book WHERE Id = @Id";
             var command = DatabaseService.CreateCommand(sql, CommandType.Text);
@@ -153,65 +159,65 @@ namespace LocaLibrary.App.Forms
 
         private void BookForm_Load(object sender, EventArgs e)
         {
-            loadBooks();
+            LoadAll();
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            var error = validateForm();
+            var error = ValidateForm();
             if (error != null)
             {
                 MessageBox.Show(error, "Error");
                 return;
             }
-            createBook();
-            loadBooks();
-            emptyForm();
+            Create();
+            LoadAll();
+            EmptyForm();
         }
 
         private void buttonReload_Click(object sender, EventArgs e)
         {
-            loadBooks();
-            emptyForm();
+            LoadAll();
+            EmptyForm();
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            var selectedId = getSelectedId();
+            var selectedId = GetSelectedId();
             if (selectedId == null)
             {
                 return;
             }
-            deleteBook(selectedId);
-            loadBooks();
-            emptyForm();
+            Delete(selectedId);
+            LoadAll();
+            EmptyForm();
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            var selectedId = getSelectedId();
+            var selectedId = GetSelectedId();
             if (selectedId == null)
             {
                 return;
             }
-            var error = validateForm();
+            var error = ValidateForm();
             if (error != null)
             {
                 MessageBox.Show(error, "Error");
                 return;
             }
-            updateBook(selectedId);
-            loadBooks();
-            emptyForm();
+            Update(selectedId);
+            LoadAll();
+            EmptyForm();
         }
 
         private void gridBooks_SelectionChanged(object sender, EventArgs e)
         {
-            if (gridBooks.SelectedRows.Count == 0)
+            if (GetGrid().SelectedRows.Count == 0)
             {
                 return;
             }
-            var row = gridBooks.SelectedRows[0];
+            var row = GetGrid().SelectedRows[0];
 
             inputTitle.Text = row.Cells["Title"].Value.ToString();
             inputAuthor.Text = row.Cells["Author"].Value.ToString();

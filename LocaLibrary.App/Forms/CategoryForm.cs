@@ -8,33 +8,39 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using LocaLibrary.App.Commons;
 using LocaLibrary.App.Services;
 
 namespace LocaLibrary.App.Forms
 {
-    public partial class CategoryForm : Form
+    public partial class CategoryForm : Form, ICrudForm
     {
         public CategoryForm()
         {
             InitializeComponent();
         }
 
-        private string getSelectedId()
+        public DataGridView GetGrid()
         {
-            if (gridCategories.SelectedRows.Count == 0)
+            return gridCategories;
+        }
+
+        public string GetSelectedId()
+        {
+            if (GetGrid().SelectedRows.Count == 0)
             {
                 return null;
             }
-            return gridCategories.SelectedRows[0].Cells["Id"].Value.ToString();
+            return GetGrid().SelectedRows[0].Cells["Id"].Value.ToString();
         }
 
-        private void emptyForm()
+        public void EmptyForm()
         {
-            gridCategories.ClearSelection();
+            GetGrid().ClearSelection();
             inputName.Clear();
         }
 
-        private string validateForm()
+        public string ValidateForm()
         {
             var name = inputName.Text;
             if (name == "")
@@ -44,7 +50,7 @@ namespace LocaLibrary.App.Forms
             return null;
         }
 
-        private void loadCategories()
+        public void LoadAll()
         {
             var sql = "SELECT * FROM Category";
             var command = DatabaseService.CreateCommand(sql, CommandType.Text);
@@ -55,10 +61,10 @@ namespace LocaLibrary.App.Forms
                 MessageBox.Show(error, "Error");
                 return;
             }
-            gridCategories.DataSource = dataTable;
+            GetGrid().DataSource = dataTable;
         }
 
-        private void createCategory()
+        public void Create()
         {
             var sql = @"INSERT INTO Category(Name) VALUES (@Name)";
             var command = DatabaseService.CreateCommand(sql, CommandType.Text);
@@ -72,7 +78,7 @@ namespace LocaLibrary.App.Forms
             }
         }
 
-        private void updateCategory(string id)
+        public void Update(string id)
         {
             var sql = @"UPDATE Category SET Name = @Name WHERE Id = @Id";
             var command = DatabaseService.CreateCommand(sql, CommandType.Text);
@@ -87,7 +93,7 @@ namespace LocaLibrary.App.Forms
             }
         }
 
-        private void deleteCategory(string id)
+        public void Delete(string id)
         {
             var sql = @"DELETE FROM Category WHERE Id = @Id";
             var command = DatabaseService.CreateCommand(sql, CommandType.Text);
@@ -103,65 +109,65 @@ namespace LocaLibrary.App.Forms
 
         private void CategoryForm_Load(object sender, EventArgs e)
         {
-            loadCategories();
+            LoadAll();
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            var selectedId = getSelectedId();
+            var selectedId = GetSelectedId();
             if (selectedId == null)
             {
                 return;
             }
-            deleteCategory(selectedId);
-            loadCategories();
-            emptyForm();
+            Delete(selectedId);
+            LoadAll();
+            EmptyForm();
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            var selectedId = getSelectedId();
+            var selectedId = GetSelectedId();
             if (selectedId == null)
             {
                 return;
             }
-            var error = validateForm();
+            var error = ValidateForm();
             if (error != null)
             {
                 MessageBox.Show(error, "Error");
                 return;
             }
-            updateCategory(selectedId);
-            loadCategories();
-            emptyForm();
+            Update(selectedId);
+            LoadAll();
+            EmptyForm();
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            var error = validateForm();
+            var error = ValidateForm();
             if (error != null)
             {
                 MessageBox.Show(error, "Error");
                 return;
             }
-            createCategory();
-            loadCategories();
-            emptyForm();
+            Create();
+            LoadAll();
+            EmptyForm();
         }
 
         private void buttonReload_Click(object sender, EventArgs e)
         {
-            loadCategories();
-            emptyForm();
+            LoadAll();
+            EmptyForm();
         }
 
         private void gridCategories_SelectionChanged(object sender, EventArgs e)
         {
-            if (gridCategories.SelectedRows.Count == 0)
+            if (GetGrid().SelectedRows.Count == 0)
             {
                 return;
             }
-            var row = gridCategories.SelectedRows[0];
+            var row = GetGrid().SelectedRows[0];
 
             inputName.Text = row.Cells["Name"].Value.ToString();
         }
