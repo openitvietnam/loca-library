@@ -25,17 +25,12 @@ namespace LocaLibrary.App.Services
             }
         }
 
-        public static SqlCommand CreateCommand(string sql, CommandType type, params SqlParameter[] parameters)
+        public static SqlCommand CreateCommand(string sql, CommandType type)
         {
-            var command = new SqlCommand(sql)
+            return new SqlCommand(sql)
             {
                 CommandType = type
             };
-            if (parameters.Length != 0)
-            {
-                command.Parameters.Add(parameters);
-            }
-            return command;
         }
 
         public static void Execute(SqlCommand command)
