@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using LocaLibrary.App.Services;
+
 namespace LocaLibrary.App.Forms
 {
     public partial class LoginForm : Form
@@ -23,8 +25,34 @@ namespace LocaLibrary.App.Forms
             new MainForm().Show();
         }
 
+        private string validateForm()
+        {
+            var email = inputEmail.Text;
+            var password = inputPassword.Text;
+
+            if (email == "")
+            {
+                return "Email is required";
+            }
+            if (password == "")
+            {
+                return "Password is required";
+            }
+            if (!UtilService.IsValidEmail(email))
+            {
+                return "Email is invalid";
+            }
+            return null;
+        }
+
         private void buttonLogin_Click(object sender, EventArgs e)
         {
+            var error = validateForm();
+            if (error != null)
+            {
+                MessageBox.Show(error, "Error");
+                return;
+            }
             OpenMainForm();
         }
 
