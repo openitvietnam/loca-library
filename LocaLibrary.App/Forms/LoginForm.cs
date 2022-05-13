@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using System.Data.SqlClient;
 
+using LocaLibrary.App.Models;
 using LocaLibrary.App.Services;
 
 namespace LocaLibrary.App.Forms
@@ -47,7 +48,7 @@ namespace LocaLibrary.App.Forms
             return null;
         }
 
-        private string validateCredentials()
+        private string validateCredentials(ref UserLogin userLogin)
         {
             var sql = @"SELECT TOP 1 Id, Email, FullName, IsAdmin, IsLocked
                         FROM Employee
@@ -57,7 +58,7 @@ namespace LocaLibrary.App.Forms
             command.Parameters.AddWithValue("@Password", inputPassword.Text);
 
             string error = null;
-            var dataTable = DatabaseService.GetDataTable(command, ref error);
+            DataTable dataTable = DatabaseService.GetDataTable(command, ref error);
             if (error != null)
             {
                 return error;
@@ -70,6 +71,10 @@ namespace LocaLibrary.App.Forms
             {
                 return "Account is locked";
             }
+
+            userLogin = new UserLogin(
+                int.Parse(dataTable.Rows[0]["Id"].ToString()),
+                dataTable.Rows[0]["IsAdmin"].ToString() == "True");
             return null;
         }
 
@@ -81,12 +86,14 @@ namespace LocaLibrary.App.Forms
                 MessageBox.Show(error, "Error");
                 return;
             }
-            var credentialsError = validateCredentials();
+            UserLogin userLogin = null;
+            var credentialsError = validateCredentials(ref userLogin);
             if (credentialsError != null)
             {
                 MessageBox.Show(credentialsError, "Error");
                 return;
             }
+            AuthService.Login(userLogin);
             OpenMainForm();
         }
 
