@@ -281,5 +281,29 @@ namespace LocaLibrary.App
             LoadAll();
             EmptyForm();
         }
+
+        private void buttonSelectMember_Click(object sender, EventArgs e)
+        {
+            var selectForm = new SelectForm();
+            selectForm.LoadAll("Member");
+            if (buttonSelectMember.Tag != null)
+            {
+                selectForm.Highlight(buttonSelectMember.Tag.ToString());
+            }
+            selectForm.ShowDialog();
+            buttonSelectMember.Tag = selectForm.SelectedId;
+        }
+
+        private void buttonSelectBook_Click(object sender, EventArgs e)
+        {
+            var selectForm = new SelectForm();
+            selectForm.LoadAll("Book");
+            if (buttonSelectBook.Tag != null)
+            {
+                selectForm.Highlight(buttonSelectBook.Tag.ToString());
+            }
+            selectForm.ShowDialog();
+            buttonSelectBook.Tag = selectForm.SelectedId;
+        }
     }
 }

@@ -297,9 +297,10 @@
             this.buttonSelectBook.Name = "buttonSelectBook";
             this.buttonSelectBook.Size = new System.Drawing.Size(200, 40);
             this.buttonSelectBook.TabIndex = 17;
-            this.buttonSelectBook.Tag = "3";
+            this.buttonSelectBook.Tag = "";
             this.buttonSelectBook.Text = "Select book";
             this.buttonSelectBook.UseVisualStyleBackColor = true;
+            this.buttonSelectBook.Click += new System.EventHandler(this.buttonSelectBook_Click);
             // 
             // buttonSelectMember
             // 
@@ -308,9 +309,10 @@
             this.buttonSelectMember.Name = "buttonSelectMember";
             this.buttonSelectMember.Size = new System.Drawing.Size(200, 40);
             this.buttonSelectMember.TabIndex = 16;
-            this.buttonSelectMember.Tag = "0";
+            this.buttonSelectMember.Tag = "";
             this.buttonSelectMember.Text = "Select member";
             this.buttonSelectMember.UseVisualStyleBackColor = true;
+            this.buttonSelectMember.Click += new System.EventHandler(this.buttonSelectMember_Click);
             // 
             // panelExpectedReturnDate
             // 
