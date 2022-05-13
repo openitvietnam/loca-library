@@ -123,6 +123,7 @@ namespace LocaLibrary.App
             if (error != null)
             {
                 MessageBox.Show(error, "Error");
+                return;
             }
         }
 

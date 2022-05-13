@@ -102,6 +102,7 @@ namespace LocaLibrary.App.Forms
             if (error != null)
             {
                 MessageBox.Show(error, "Error");
+                return;
             }
         }
 
