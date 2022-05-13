@@ -96,6 +96,7 @@
             this.menuItemEmployees.Name = "menuItemEmployees";
             this.menuItemEmployees.Size = new System.Drawing.Size(180, 22);
             this.menuItemEmployees.Text = "Employees...";
+            this.menuItemEmployees.Click += new System.EventHandler(this.menuItemEmployees_Click);
             // 
             // menuItemMembers
             // 
