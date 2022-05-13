@@ -56,7 +56,12 @@ namespace LocaLibrary.App.Forms
             command.Parameters.AddWithValue("@Email", inputEmail.Text);
             command.Parameters.AddWithValue("@Password", inputPassword.Text);
 
-            var dataTable = DatabaseService.GetDataTable(command);
+            string error = null;
+            var dataTable = DatabaseService.GetDataTable(command, ref error);
+            if (error != null)
+            {
+                return error;
+            }
             if (dataTable.Rows.Count == 0)
             {
                 return "Email and password do not match";

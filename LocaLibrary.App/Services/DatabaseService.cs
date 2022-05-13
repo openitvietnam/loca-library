@@ -17,11 +17,18 @@ namespace LocaLibrary.App.Services
             User ID = LocaLibrary;
             Password = 123456";
 
-        public static void Check()
+        public static void Check(ref string error)
         {
             using (var connection = new SqlConnection(CONNECTION_STRING))
             {
-                connection.Open();
+                try
+                {
+                    connection.Open();
+                }
+                catch (Exception ex)
+                {
+                    error = ex.Message;
+                }
             }
         }
 
@@ -33,37 +40,60 @@ namespace LocaLibrary.App.Services
             };
         }
 
-        public static void Execute(SqlCommand command)
+        public static void Execute(SqlCommand command, ref string error)
         {
             using (var connection = new SqlConnection(CONNECTION_STRING))
             {
                 command.Connection = connection;
-                connection.Open();
-                command.ExecuteNonQuery();
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    error = ex.Message;
+                }
             }
         }
 
-        public static object GetValue(SqlCommand command)
+        public static object GetValue(SqlCommand command, ref string error)
         {
             using (var connection = new SqlConnection(CONNECTION_STRING))
             {
                 command.Connection = connection;
-                connection.Open();
-                return command.ExecuteScalar();
+                try
+                {
+                    connection.Open();
+                    return command.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    error = ex.Message;
+                    return null;
+                }
             }
         }
 
-        public static SqlDataReader GetDataReader(SqlCommand command)
+        public static SqlDataReader GetDataReader(SqlCommand command, ref string error)
         {
             using (var connection = new SqlConnection(CONNECTION_STRING))
             {
                 command.Connection = connection;
-                connection.Open();
-                return command.ExecuteReader();
+                try
+                {
+                    connection.Open();
+                    return command.ExecuteReader();
+                }
+                catch (Exception ex)
+                {
+                    error = ex.Message;
+                    return null;
+                }
             }
         }
 
-        public static DataTable GetDataTable(SqlCommand command)
+        public static DataTable GetDataTable(SqlCommand command, ref string error)
         {
             var dataTable = new DataTable();
             using (var connection = new SqlConnection(CONNECTION_STRING))
@@ -71,7 +101,14 @@ namespace LocaLibrary.App.Services
                 command.Connection = connection; // no need to Open() connection
                 using (var adapter = new SqlDataAdapter(command))
                 {
-                    adapter.Fill(dataTable);
+                    try
+                    {
+                        adapter.Fill(dataTable);
+                    }
+                    catch (Exception ex)
+                    {
+                        error = ex.Message;
+                    }
                 }
             }
             return dataTable;
