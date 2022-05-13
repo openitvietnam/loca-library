@@ -122,6 +122,7 @@
             this.inputPassword.PasswordChar = '*';
             this.inputPassword.Size = new System.Drawing.Size(244, 25);
             this.inputPassword.TabIndex = 3;
+            this.inputPassword.Text = "123456";
             // 
             // labelPassword
             // 
@@ -150,6 +151,7 @@
             this.inputEmail.Name = "inputEmail";
             this.inputEmail.Size = new System.Drawing.Size(244, 25);
             this.inputEmail.TabIndex = 1;
+            this.inputEmail.Text = "admin@gmail.com";
             // 
             // labelEmail
             // 
