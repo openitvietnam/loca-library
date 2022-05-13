@@ -104,6 +104,7 @@
             this.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit profile";
+            this.Load += new System.EventHandler(this.EditProfileForm_Load);
             this.panelActions.ResumeLayout(false);
             this.panelFullName.ResumeLayout(false);
             this.panelFullName.PerformLayout();
