@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using LocaLibrary.App.Forms;
+using LocaLibrary.App.Services;
 
 namespace LocaLibrary.App
 {
@@ -50,6 +51,7 @@ namespace LocaLibrary.App
 
         private void menuItemExit_Click(object sender, EventArgs e)
         {
+            AuthService.Logout();
             Close();
         }
 
