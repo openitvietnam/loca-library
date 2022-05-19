@@ -71,8 +71,18 @@ namespace LocaLibrary.App.Forms
 
         public void LoadAll()
         {
-            var sql = "SELECT * FROM Member";
+            var search = inputSearch.Text;
+            var sql = search == ""
+                ? "SELECT * FROM Member"
+                : @"SELECT *
+                    FROM Member
+                    WHERE Code LIKE @SearchLike OR FullName LIKE @SearchLike OR ClassName LIKE @SearchLike";
             var command = DatabaseService.CreateCommand(sql, CommandType.Text);
+            if (search != "")
+            {
+                command.Parameters.AddWithValue("@SearchLike", "%" + search + "%");
+            }
+
             string error = null;
             var dataTable = DatabaseService.GetDataTable(command, ref error);
             if (error != null)
@@ -201,6 +211,12 @@ namespace LocaLibrary.App.Forms
         }
 
         private void buttonReload_Click(object sender, EventArgs e)
+        {
+            LoadAll();
+            EmptyForm();
+        }
+
+        private void inputSearch_TextChanged(object sender, EventArgs e)
         {
             LoadAll();
             EmptyForm();
