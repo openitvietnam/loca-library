@@ -272,10 +272,10 @@
 			this.panelSearch.Controls.Add(this.inputSearch);
 			this.panelSearch.Controls.Add(this.labelSearch);
 			this.panelSearch.Dock = System.Windows.Forms.DockStyle.Right;
-			this.panelSearch.Location = new System.Drawing.Point(465, 10);
+			this.panelSearch.Location = new System.Drawing.Point(484, 10);
 			this.panelSearch.Name = "panelSearch";
 			this.panelSearch.Padding = new System.Windows.Forms.Padding(8);
-			this.panelSearch.Size = new System.Drawing.Size(269, 40);
+			this.panelSearch.Size = new System.Drawing.Size(250, 40);
 			this.panelSearch.TabIndex = 13;
 			// 
 			// inputSearch
@@ -283,7 +283,7 @@
 			this.inputSearch.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.inputSearch.Location = new System.Drawing.Point(63, 8);
 			this.inputSearch.Name = "inputSearch";
-			this.inputSearch.Size = new System.Drawing.Size(198, 25);
+			this.inputSearch.Size = new System.Drawing.Size(179, 25);
 			this.inputSearch.TabIndex = 15;
 			this.inputSearch.TextChanged += new System.EventHandler(this.inputSearch_TextChanged);
 			// 

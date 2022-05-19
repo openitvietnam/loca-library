@@ -243,6 +243,7 @@ namespace LocaLibrary.App.Forms
         private void inputSearch_TextChanged(object sender, EventArgs e)
         {
             LoadAll();
+            EmptyForm();
         }
     }
 }
