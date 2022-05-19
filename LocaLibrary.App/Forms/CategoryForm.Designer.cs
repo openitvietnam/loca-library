@@ -158,8 +158,7 @@
             this.gridCategories.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.gridCategories.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridCategories.Size = new System.Drawing.Size(544, 441);
-            this.gridCategories.TabIndex = 6;
-            this.gridCategories.SelectionChanged += new System.EventHandler(this.gridCategories_SelectionChanged);
+            this.gridCategories.TabIndex = 7;
             // 
             // CategoryForm
             // 

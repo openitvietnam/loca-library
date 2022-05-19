@@ -30,11 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookForm));
             this.panelInfo = new System.Windows.Forms.Panel();
-            this.gridBooks = new System.Windows.Forms.DataGridView();
-            this.panelAction = new System.Windows.Forms.Panel();
-            this.buttonAdd = new System.Windows.Forms.Button();
-            this.buttonUpdate = new System.Windows.Forms.Button();
-            this.buttonDelete = new System.Windows.Forms.Button();
             this.panelPrice = new System.Windows.Forms.Panel();
             this.inputPrice = new System.Windows.Forms.TextBox();
             this.labelPrice = new System.Windows.Forms.Label();
@@ -53,16 +48,21 @@
             this.panelTitle = new System.Windows.Forms.Panel();
             this.inputTitle = new System.Windows.Forms.TextBox();
             this.labelTitle = new System.Windows.Forms.Label();
+            this.panelAction = new System.Windows.Forms.Panel();
             this.buttonReload = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.gridBooks = new System.Windows.Forms.DataGridView();
             this.panelInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridBooks)).BeginInit();
-            this.panelAction.SuspendLayout();
             this.panelPrice.SuspendLayout();
             this.panelLanguage.SuspendLayout();
             this.panelPublishYear.SuspendLayout();
             this.panelPublisher.SuspendLayout();
             this.panelAuthor.SuspendLayout();
             this.panelTitle.SuspendLayout();
+            this.panelAction.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridBooks)).BeginInit();
             this.SuspendLayout();
             // 
             // panelInfo
@@ -80,72 +80,6 @@
             this.panelInfo.Padding = new System.Windows.Forms.Padding(20);
             this.panelInfo.Size = new System.Drawing.Size(240, 501);
             this.panelInfo.TabIndex = 1;
-            // 
-            // gridBooks
-            // 
-            this.gridBooks.AllowUserToAddRows = false;
-            this.gridBooks.AllowUserToDeleteRows = false;
-            this.gridBooks.AllowUserToResizeRows = false;
-            this.gridBooks.BackgroundColor = System.Drawing.Color.White;
-            this.gridBooks.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.gridBooks.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.gridBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridBooks.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridBooks.GridColor = System.Drawing.Color.LightGray;
-            this.gridBooks.Location = new System.Drawing.Point(0, 0);
-            this.gridBooks.Name = "gridBooks";
-            this.gridBooks.ReadOnly = true;
-            this.gridBooks.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.gridBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridBooks.Size = new System.Drawing.Size(544, 501);
-            this.gridBooks.TabIndex = 2;
-            this.gridBooks.SelectionChanged += new System.EventHandler(this.gridBooks_SelectionChanged);
-            // 
-            // panelAction
-            // 
-            this.panelAction.Controls.Add(this.buttonReload);
-            this.panelAction.Controls.Add(this.buttonAdd);
-            this.panelAction.Controls.Add(this.buttonUpdate);
-            this.panelAction.Controls.Add(this.buttonDelete);
-            this.panelAction.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelAction.Location = new System.Drawing.Point(0, 441);
-            this.panelAction.Name = "panelAction";
-            this.panelAction.Padding = new System.Windows.Forms.Padding(10);
-            this.panelAction.Size = new System.Drawing.Size(544, 60);
-            this.panelAction.TabIndex = 3;
-            // 
-            // buttonAdd
-            // 
-            this.buttonAdd.Dock = System.Windows.Forms.DockStyle.Left;
-            this.buttonAdd.Location = new System.Drawing.Point(210, 10);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(100, 40);
-            this.buttonAdd.TabIndex = 10;
-            this.buttonAdd.Text = "Add new";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
-            // 
-            // buttonUpdate
-            // 
-            this.buttonUpdate.Dock = System.Windows.Forms.DockStyle.Left;
-            this.buttonUpdate.Location = new System.Drawing.Point(110, 10);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(100, 40);
-            this.buttonUpdate.TabIndex = 9;
-            this.buttonUpdate.Text = "Update";
-            this.buttonUpdate.UseVisualStyleBackColor = true;
-            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
-            // 
-            // buttonDelete
-            // 
-            this.buttonDelete.Dock = System.Windows.Forms.DockStyle.Left;
-            this.buttonDelete.Location = new System.Drawing.Point(10, 10);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(100, 40);
-            this.buttonDelete.TabIndex = 8;
-            this.buttonDelete.Text = "Delete";
-            this.buttonDelete.UseVisualStyleBackColor = true;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // panelPrice
             // 
@@ -315,6 +249,19 @@
             this.labelTitle.Text = "Title";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // panelAction
+            // 
+            this.panelAction.Controls.Add(this.buttonReload);
+            this.panelAction.Controls.Add(this.buttonAdd);
+            this.panelAction.Controls.Add(this.buttonUpdate);
+            this.panelAction.Controls.Add(this.buttonDelete);
+            this.panelAction.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelAction.Location = new System.Drawing.Point(0, 441);
+            this.panelAction.Name = "panelAction";
+            this.panelAction.Padding = new System.Windows.Forms.Padding(10);
+            this.panelAction.Size = new System.Drawing.Size(544, 60);
+            this.panelAction.TabIndex = 3;
+            // 
             // buttonReload
             // 
             this.buttonReload.Dock = System.Windows.Forms.DockStyle.Left;
@@ -326,14 +273,66 @@
             this.buttonReload.UseVisualStyleBackColor = true;
             this.buttonReload.Click += new System.EventHandler(this.buttonReload_Click);
             // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Dock = System.Windows.Forms.DockStyle.Left;
+            this.buttonAdd.Location = new System.Drawing.Point(210, 10);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(100, 40);
+            this.buttonAdd.TabIndex = 10;
+            this.buttonAdd.Text = "Add new";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.Dock = System.Windows.Forms.DockStyle.Left;
+            this.buttonUpdate.Location = new System.Drawing.Point(110, 10);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(100, 40);
+            this.buttonUpdate.TabIndex = 9;
+            this.buttonUpdate.Text = "Update";
+            this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Dock = System.Windows.Forms.DockStyle.Left;
+            this.buttonDelete.Location = new System.Drawing.Point(10, 10);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(100, 40);
+            this.buttonDelete.TabIndex = 8;
+            this.buttonDelete.Text = "Delete";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
+            // gridBooks
+            // 
+            this.gridBooks.AllowUserToAddRows = false;
+            this.gridBooks.AllowUserToDeleteRows = false;
+            this.gridBooks.AllowUserToResizeRows = false;
+            this.gridBooks.BackgroundColor = System.Drawing.Color.White;
+            this.gridBooks.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridBooks.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gridBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridBooks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridBooks.GridColor = System.Drawing.Color.LightGray;
+            this.gridBooks.Location = new System.Drawing.Point(0, 0);
+            this.gridBooks.Name = "gridBooks";
+            this.gridBooks.ReadOnly = true;
+            this.gridBooks.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gridBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridBooks.Size = new System.Drawing.Size(544, 441);
+            this.gridBooks.TabIndex = 4;
+            // 
             // BookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 501);
-            this.Controls.Add(this.panelAction);
             this.Controls.Add(this.gridBooks);
+            this.Controls.Add(this.panelAction);
             this.Controls.Add(this.panelInfo);
             this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -343,8 +342,6 @@
             this.Text = "Book list";
             this.Load += new System.EventHandler(this.BookForm_Load);
             this.panelInfo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridBooks)).EndInit();
-            this.panelAction.ResumeLayout(false);
             this.panelPrice.ResumeLayout(false);
             this.panelPrice.PerformLayout();
             this.panelLanguage.ResumeLayout(false);
@@ -357,6 +354,8 @@
             this.panelAuthor.PerformLayout();
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
+            this.panelAction.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridBooks)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -382,11 +381,11 @@
         private System.Windows.Forms.Panel panelTitle;
         private System.Windows.Forms.TextBox inputTitle;
         private System.Windows.Forms.Label labelTitle;
-        private System.Windows.Forms.DataGridView gridBooks;
         private System.Windows.Forms.Panel panelAction;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonReload;
+        private System.Windows.Forms.DataGridView gridBooks;
     }
 }

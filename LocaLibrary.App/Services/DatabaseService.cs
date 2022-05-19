@@ -16,6 +16,11 @@ namespace LocaLibrary.App.Services
             Initial Catalog = LocaLibrary;
             User ID = LocaLibrary;
             Password = 123456";
+        //private static readonly string CONNECTION_STRING =
+        //    @"Data Source = .;
+        //    Initial Catalog = LocaLibrary;
+        //    User ID = LocaLibrary;
+        //    Password = 123456";
 
         public static void Check(ref string error)
         {

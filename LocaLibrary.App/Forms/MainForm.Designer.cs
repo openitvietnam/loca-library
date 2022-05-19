@@ -57,19 +57,19 @@
             this.panelExpectedReturnDate = new System.Windows.Forms.Panel();
             this.dateExpectedReturnDate = new System.Windows.Forms.DateTimePicker();
             this.labelExpectedReturnDate = new System.Windows.Forms.Label();
-            this.gridBookBorrows = new System.Windows.Forms.DataGridView();
             this.panelAction = new System.Windows.Forms.Panel();
             this.buttonReturn = new System.Windows.Forms.Button();
             this.buttonBorrow = new System.Windows.Forms.Button();
             this.buttonReload = new System.Windows.Forms.Button();
+            this.gridBookBorrows = new System.Windows.Forms.DataGridView();
             this.menuMain.SuspendLayout();
             this.panelSide.SuspendLayout();
             this.panelOverview.SuspendLayout();
             this.panelCurrentUser.SuspendLayout();
             this.panelInfo.SuspendLayout();
             this.panelExpectedReturnDate.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridBookBorrows)).BeginInit();
             this.panelAction.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridBookBorrows)).BeginInit();
             this.SuspendLayout();
             // 
             // menuMain
@@ -343,26 +343,6 @@
             this.labelExpectedReturnDate.Text = "Expected return date";
             this.labelExpectedReturnDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // gridBookBorrows
-            // 
-            this.gridBookBorrows.AllowUserToAddRows = false;
-            this.gridBookBorrows.AllowUserToDeleteRows = false;
-            this.gridBookBorrows.AllowUserToResizeRows = false;
-            this.gridBookBorrows.BackgroundColor = System.Drawing.Color.White;
-            this.gridBookBorrows.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.gridBookBorrows.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.gridBookBorrows.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridBookBorrows.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridBookBorrows.GridColor = System.Drawing.Color.LightGray;
-            this.gridBookBorrows.Location = new System.Drawing.Point(200, 24);
-            this.gridBookBorrows.Name = "gridBookBorrows";
-            this.gridBookBorrows.ReadOnly = true;
-            this.gridBookBorrows.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.gridBookBorrows.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridBookBorrows.Size = new System.Drawing.Size(568, 577);
-            this.gridBookBorrows.TabIndex = 9;
-            this.gridBookBorrows.SelectionChanged += new System.EventHandler(this.gridBookBorrows_SelectionChanged);
-            // 
             // panelAction
             // 
             this.panelAction.Controls.Add(this.buttonReturn);
@@ -408,14 +388,33 @@
             this.buttonReload.UseVisualStyleBackColor = true;
             this.buttonReload.Click += new System.EventHandler(this.buttonReload_Click);
             // 
+            // gridBookBorrows
+            // 
+            this.gridBookBorrows.AllowUserToAddRows = false;
+            this.gridBookBorrows.AllowUserToDeleteRows = false;
+            this.gridBookBorrows.AllowUserToResizeRows = false;
+            this.gridBookBorrows.BackgroundColor = System.Drawing.Color.White;
+            this.gridBookBorrows.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridBookBorrows.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gridBookBorrows.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridBookBorrows.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridBookBorrows.GridColor = System.Drawing.Color.LightGray;
+            this.gridBookBorrows.Location = new System.Drawing.Point(200, 24);
+            this.gridBookBorrows.Name = "gridBookBorrows";
+            this.gridBookBorrows.ReadOnly = true;
+            this.gridBookBorrows.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gridBookBorrows.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridBookBorrows.Size = new System.Drawing.Size(568, 517);
+            this.gridBookBorrows.TabIndex = 11;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1008, 601);
-            this.Controls.Add(this.panelAction);
             this.Controls.Add(this.gridBookBorrows);
+            this.Controls.Add(this.panelAction);
             this.Controls.Add(this.panelInfo);
             this.Controls.Add(this.panelSide);
             this.Controls.Add(this.menuMain);
@@ -435,8 +434,8 @@
             this.panelCurrentUser.ResumeLayout(false);
             this.panelInfo.ResumeLayout(false);
             this.panelExpectedReturnDate.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridBookBorrows)).EndInit();
             this.panelAction.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridBookBorrows)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -467,7 +466,6 @@
         private System.Windows.Forms.Label labelBorrowingBookCount;
         private System.Windows.Forms.Label labelOverview;
         private System.Windows.Forms.Panel panelInfo;
-        private System.Windows.Forms.DataGridView gridBookBorrows;
         private System.Windows.Forms.Panel panelAction;
         private System.Windows.Forms.Button buttonReturn;
         private System.Windows.Forms.Button buttonBorrow;
@@ -477,6 +475,7 @@
         private System.Windows.Forms.Button buttonSelectBook;
         private System.Windows.Forms.Button buttonSelectMember;
         private System.Windows.Forms.DateTimePicker dateExpectedReturnDate;
+        private System.Windows.Forms.DataGridView gridBookBorrows;
     }
 }
 
