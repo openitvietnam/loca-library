@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Data.SqlClient;
+
 using LocaLibrary.App.Commons;
 using LocaLibrary.App.Services;
 
@@ -88,8 +90,16 @@ namespace LocaLibrary.App.Forms
 
         public void LoadAll()
         {
-            var sql = "SELECT * FROM Book";
+            var search = inputSearch.Text;
+            var sql = search == ""
+                ? "SELECT * FROM Book"
+                : "SELECT * FROM Book WHERE Title LIKE @SearchLike OR Author LIKE @SearchLike";
             var command = DatabaseService.CreateCommand(sql, CommandType.Text);
+            if (search != "")
+            {
+                command.Parameters.AddWithValue("@SearchLike", "%" + search + "%");
+            }
+
             string error = null;
             var dataTable = DatabaseService.GetDataTable(command, ref error);
             if (error != null)
@@ -228,6 +238,11 @@ namespace LocaLibrary.App.Forms
             inputPublishYear.Text = row.Cells["PublishYear"].Value.ToString();
             inputLanguage.Text = row.Cells["Language"].Value.ToString();
             inputPrice.Text = row.Cells["Price"].Value.ToString();
+        }
+
+        private void inputSearch_TextChanged(object sender, EventArgs e)
+        {
+            LoadAll();
         }
     }
 }
