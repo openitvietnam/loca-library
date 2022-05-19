@@ -90,7 +90,8 @@ namespace LocaLibrary.App
             GetGrid().DataSource = dataTable;
         }
 
-        public void Create() {
+        public void Create()
+        {
             var sql = @"INSERT INTO BookBorrow(BookId, MemberId, EmployeeId, BorrowDate, ExpectedReturnDate)
                         VALUES (@BookId, @MemberId, @EmployeeId, @BorrowDate, @ExpectedReturnDate)";
             var command = DatabaseService.CreateCommand(sql, CommandType.Text);
@@ -109,7 +110,8 @@ namespace LocaLibrary.App
             }
         }
 
-        public void Update(string id) {
+        public void Update(string id)
+        {
             // Just set IsDone = true
             var sql = @"UPDATE BookBorrow
                         SET IsDone = 1, ReturnDate = @ReturnDate
@@ -127,7 +129,8 @@ namespace LocaLibrary.App
             }
         }
 
-        public void Delete(string id) {
+        public void Delete(string id)
+        {
             // Do nothing
         }
 
@@ -272,6 +275,13 @@ namespace LocaLibrary.App
 
         private void buttonReturn_Click(object sender, EventArgs e)
         {
+            var confirmResult = MessageBox.Show(
+                "Confirm return books?", "Confirm",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (confirmResult != DialogResult.Yes)
+            {
+                return;
+            }
             var selectedId = GetSelectedId();
             if (selectedId == null)
             {
