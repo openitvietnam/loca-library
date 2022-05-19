@@ -359,6 +359,7 @@
 			this.gridBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.gridBooks.Size = new System.Drawing.Size(744, 441);
 			this.gridBooks.TabIndex = 4;
+			this.gridBooks.SelectionChanged += new System.EventHandler(this.gridBooks_SelectionChanged);
 			// 
 			// BookForm
 			// 
