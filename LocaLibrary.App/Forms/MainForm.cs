@@ -39,28 +39,11 @@ namespace LocaLibrary.App
         {
             GetGrid().ClearSelection();
             dateExpectedReturnDate.Value = DateTime.Now;
-            buttonSelectBook.Tag = null;
-            buttonSelectMember.Tag = null;
         }
 
         public string ValidateForm()
         {
-            var expectedReturnDate = dateExpectedReturnDate.Value;
-            var memberId = buttonSelectMember.Tag;
-            var bookId = buttonSelectBook.Tag;
-
-            if (expectedReturnDate.Date < DateTime.Now.Date)
-            {
-                return "Invalid expected return date";
-            }
-            if (memberId == null)
-            {
-                return "Member is required";
-            }
-            if (bookId == null)
-            {
-                return "Book is required";
-            }
+            // Do nothing
             return null;
         }
 
@@ -77,7 +60,7 @@ namespace LocaLibrary.App
                             INNER JOIN Book b ON bb.BookId = b.Id
                             INNER JOIN Member m ON bb.MemberId = m.Id
                             INNER JOIN Employee e ON bb.EmployeeId = e.Id
-                        ORDER BY bb.BorrowDate, bb.Id DESC";
+                        ORDER BY bb.BorrowDate DESC, bb.Id DESC";
             var command = DatabaseService.CreateCommand(sql, CommandType.Text);
 
             string error = null;
@@ -92,22 +75,7 @@ namespace LocaLibrary.App
 
         public void Create()
         {
-            var sql = @"INSERT INTO BookBorrow(BookId, MemberId, EmployeeId, BorrowDate, ExpectedReturnDate)
-                        VALUES (@BookId, @MemberId, @EmployeeId, @BorrowDate, @ExpectedReturnDate)";
-            var command = DatabaseService.CreateCommand(sql, CommandType.Text);
-            command.Parameters.AddWithValue("@BookId", buttonSelectBook.Tag);
-            command.Parameters.AddWithValue("@MemberId", buttonSelectMember.Tag);
-            command.Parameters.AddWithValue("@EmployeeId", AuthService.UserLogin.Id);
-            command.Parameters.AddWithValue("@BorrowDate", DateTime.Now.Date);
-            command.Parameters.AddWithValue("@ExpectedReturnDate", dateExpectedReturnDate.Value.Date);
-
-            string error = null;
-            DatabaseService.Execute(command, ref error);
-            if (error != null)
-            {
-                MessageBox.Show(error, "Error");
-                return;
-            }
+            // Do nothing
         }
 
         public void Update(string id)
@@ -250,8 +218,6 @@ namespace LocaLibrary.App
             var row = GetGrid().SelectedRows[0];
 
             dateExpectedReturnDate.Value = Convert.ToDateTime(row.Cells["ExpectedReturnDate"].Value);
-            buttonSelectBook.Tag = row.Cells["BookId"].Value.ToString();
-            buttonSelectMember.Tag = row.Cells["MemberId"].Value.ToString();
         }
 
         private void buttonReload_Click(object sender, EventArgs e)
@@ -262,13 +228,7 @@ namespace LocaLibrary.App
 
         private void buttonBorrow_Click(object sender, EventArgs e)
         {
-            var error = ValidateForm();
-            if (error != null)
-            {
-                MessageBox.Show(error, "Error");
-                return;
-            }
-            Create();
+            new BorrowForm().ShowDialog();
             LoadAll();
             EmptyForm();
         }
@@ -290,30 +250,6 @@ namespace LocaLibrary.App
             Update(selectedId);
             LoadAll();
             EmptyForm();
-        }
-
-        private void buttonSelectMember_Click(object sender, EventArgs e)
-        {
-            var selectForm = new SelectForm();
-            selectForm.LoadAll("Member");
-            if (buttonSelectMember.Tag != null)
-            {
-                selectForm.Highlight(buttonSelectMember.Tag.ToString());
-            }
-            selectForm.ShowDialog();
-            buttonSelectMember.Tag = selectForm.SelectedId;
-        }
-
-        private void buttonSelectBook_Click(object sender, EventArgs e)
-        {
-            var selectForm = new SelectForm();
-            selectForm.LoadAll("Book");
-            if (buttonSelectBook.Tag != null)
-            {
-                selectForm.Highlight(buttonSelectBook.Tag.ToString());
-            }
-            selectForm.ShowDialog();
-            buttonSelectBook.Tag = selectForm.SelectedId;
         }
     }
 }

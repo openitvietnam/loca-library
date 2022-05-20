@@ -52,8 +52,6 @@
 			this.labelCurrentUserFullName = new System.Windows.Forms.Label();
 			this.labelCurrentUser = new System.Windows.Forms.Label();
 			this.panelInfo = new System.Windows.Forms.Panel();
-			this.buttonSelectBook = new System.Windows.Forms.Button();
-			this.buttonSelectMember = new System.Windows.Forms.Button();
 			this.panelExpectedReturnDate = new System.Windows.Forms.Panel();
 			this.dateExpectedReturnDate = new System.Windows.Forms.DateTimePicker();
 			this.labelExpectedReturnDate = new System.Windows.Forms.Label();
@@ -280,8 +278,6 @@
 			// 
 			// panelInfo
 			// 
-			this.panelInfo.Controls.Add(this.buttonSelectBook);
-			this.panelInfo.Controls.Add(this.buttonSelectMember);
 			this.panelInfo.Controls.Add(this.panelExpectedReturnDate);
 			this.panelInfo.Dock = System.Windows.Forms.DockStyle.Right;
 			this.panelInfo.Location = new System.Drawing.Point(768, 24);
@@ -289,30 +285,6 @@
 			this.panelInfo.Padding = new System.Windows.Forms.Padding(20);
 			this.panelInfo.Size = new System.Drawing.Size(240, 577);
 			this.panelInfo.TabIndex = 8;
-			// 
-			// buttonSelectBook
-			// 
-			this.buttonSelectBook.Dock = System.Windows.Forms.DockStyle.Top;
-			this.buttonSelectBook.Location = new System.Drawing.Point(20, 135);
-			this.buttonSelectBook.Name = "buttonSelectBook";
-			this.buttonSelectBook.Size = new System.Drawing.Size(200, 40);
-			this.buttonSelectBook.TabIndex = 17;
-			this.buttonSelectBook.Tag = "";
-			this.buttonSelectBook.Text = "Select book";
-			this.buttonSelectBook.UseVisualStyleBackColor = true;
-			this.buttonSelectBook.Click += new System.EventHandler(this.buttonSelectBook_Click);
-			// 
-			// buttonSelectMember
-			// 
-			this.buttonSelectMember.Dock = System.Windows.Forms.DockStyle.Top;
-			this.buttonSelectMember.Location = new System.Drawing.Point(20, 95);
-			this.buttonSelectMember.Name = "buttonSelectMember";
-			this.buttonSelectMember.Size = new System.Drawing.Size(200, 40);
-			this.buttonSelectMember.TabIndex = 16;
-			this.buttonSelectMember.Tag = "";
-			this.buttonSelectMember.Text = "Select member";
-			this.buttonSelectMember.UseVisualStyleBackColor = true;
-			this.buttonSelectMember.Click += new System.EventHandler(this.buttonSelectMember_Click);
 			// 
 			// panelExpectedReturnDate
 			// 
@@ -473,8 +445,6 @@
         private System.Windows.Forms.Button buttonReload;
         private System.Windows.Forms.Panel panelExpectedReturnDate;
         private System.Windows.Forms.Label labelExpectedReturnDate;
-        private System.Windows.Forms.Button buttonSelectBook;
-        private System.Windows.Forms.Button buttonSelectMember;
         private System.Windows.Forms.DateTimePicker dateExpectedReturnDate;
         private System.Windows.Forms.DataGridView gridBookBorrows;
     }
