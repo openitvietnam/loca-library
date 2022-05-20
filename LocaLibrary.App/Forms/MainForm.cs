@@ -48,6 +48,14 @@ namespace LocaLibrary.App
 
         public void LoadAll()
         {
+            var searchMembers = inputSearchMembers.Text;
+            var searchBooks = inputSearchBooks.Text;
+            var overDue = comboFilterOverDue.SelectedIndex; // 0 is all, 1 is over due
+
+            // In combobox, 0 is all, 1 is borrowing, 2 is returned
+            // Convert to -1 is all, IsDone match to 0, 1
+            var status = comboFilterStatus.SelectedIndex - 1;
+
             var sql = @"SELECT
                             bb.Id, bb.IsDone, bb.BorrowDate,
                             bb.ExpectedReturnDate, bb.ReturnDate,                           
@@ -59,8 +67,22 @@ namespace LocaLibrary.App
                             INNER JOIN Book b ON bb.BookId = b.Id
                             INNER JOIN Member m ON bb.MemberId = m.Id
                             INNER JOIN Employee e ON bb.EmployeeId = e.Id
+                        WHERE
+                            (@SearchMembersLike = '%%'
+                                OR m.Code LIKE @SearchMembersLike 
+                                OR m.FullName LIKE @SearchMembersLike 
+                                OR m.ClassName LIKE @SearchMembersLike)
+                            AND (@SearchBooksLike = '%%'
+                                OR b.Title LIKE @SearchBooksLike
+                                OR b.Author LIKE @SearchBooksLike)
+                            AND (@OverDue = 0 OR GETDATE() >= bb.ExpectedReturnDate)
+                            AND (@Status = -1 OR bb.IsDone = @Status)
                         ORDER BY bb.BorrowDate DESC, bb.Id DESC";
             var command = DatabaseService.CreateCommand(sql, CommandType.Text);
+            command.Parameters.AddWithValue("@SearchMembersLike", "%" + searchMembers + "%");
+            command.Parameters.AddWithValue("@SearchBooksLike", "%" + searchBooks + "%");
+            command.Parameters.AddWithValue("@OverDue", overDue);
+            command.Parameters.AddWithValue("@Status", status);
 
             string error = null;
             var dataTable = DatabaseService.GetDataTable(command, ref error);
@@ -238,6 +260,30 @@ namespace LocaLibrary.App
                 return;
             }
             Update(selectedId);
+            LoadAll();
+            EmptyForm();
+        }
+
+        private void comboFilterStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadAll();
+            EmptyForm();
+        }
+
+        private void comboFilterOverDue_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadAll();
+            EmptyForm();
+        }
+
+        private void inputSearchMembers_TextChanged(object sender, EventArgs e)
+        {
+            LoadAll();
+            EmptyForm();
+        }
+
+        private void inputSearchBooks_TextChanged(object sender, EventArgs e)
+        {
             LoadAll();
             EmptyForm();
         }

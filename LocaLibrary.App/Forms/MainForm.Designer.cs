@@ -55,9 +55,6 @@
 			this.panelFilterOverDue = new System.Windows.Forms.Panel();
 			this.comboFilterOverDue = new System.Windows.Forms.ComboBox();
 			this.labelFilterOverDue = new System.Windows.Forms.Label();
-			this.panelFilterStatus = new System.Windows.Forms.Panel();
-			this.comboFilterStatus = new System.Windows.Forms.ComboBox();
-			this.labelFilterStatus = new System.Windows.Forms.Label();
 			this.panelSearchBooks = new System.Windows.Forms.Panel();
 			this.inputSearchBooks = new System.Windows.Forms.TextBox();
 			this.labelSearchBooks = new System.Windows.Forms.Label();
@@ -69,17 +66,20 @@
 			this.buttonBorrow = new System.Windows.Forms.Button();
 			this.buttonReload = new System.Windows.Forms.Button();
 			this.gridBookBorrows = new System.Windows.Forms.DataGridView();
+			this.panelFilterStatus = new System.Windows.Forms.Panel();
+			this.comboFilterStatus = new System.Windows.Forms.ComboBox();
+			this.labelFilterStatus = new System.Windows.Forms.Label();
 			this.menuMain.SuspendLayout();
 			this.panelSide.SuspendLayout();
 			this.panelOverview.SuspendLayout();
 			this.panelCurrentUser.SuspendLayout();
 			this.panelInfo.SuspendLayout();
 			this.panelFilterOverDue.SuspendLayout();
-			this.panelFilterStatus.SuspendLayout();
 			this.panelSearchBooks.SuspendLayout();
 			this.panelSearchMembers.SuspendLayout();
 			this.panelAction.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.gridBookBorrows)).BeginInit();
+			this.panelFilterStatus.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// menuMain
@@ -290,8 +290,8 @@
 			// 
 			// panelInfo
 			// 
-			this.panelInfo.Controls.Add(this.panelFilterOverDue);
 			this.panelInfo.Controls.Add(this.panelFilterStatus);
+			this.panelInfo.Controls.Add(this.panelFilterOverDue);
 			this.panelInfo.Controls.Add(this.panelSearchBooks);
 			this.panelInfo.Controls.Add(this.panelSearchMembers);
 			this.panelInfo.Dock = System.Windows.Forms.DockStyle.Right;
@@ -306,7 +306,7 @@
 			this.panelFilterOverDue.Controls.Add(this.comboFilterOverDue);
 			this.panelFilterOverDue.Controls.Add(this.labelFilterOverDue);
 			this.panelFilterOverDue.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panelFilterOverDue.Location = new System.Drawing.Point(20, 245);
+			this.panelFilterOverDue.Location = new System.Drawing.Point(20, 170);
 			this.panelFilterOverDue.Name = "panelFilterOverDue";
 			this.panelFilterOverDue.Size = new System.Drawing.Size(200, 75);
 			this.panelFilterOverDue.TabIndex = 17;
@@ -323,6 +323,7 @@
 			this.comboFilterOverDue.Name = "comboFilterOverDue";
 			this.comboFilterOverDue.Size = new System.Drawing.Size(200, 25);
 			this.comboFilterOverDue.TabIndex = 1;
+			this.comboFilterOverDue.SelectedIndexChanged += new System.EventHandler(this.comboFilterOverDue_SelectedIndexChanged);
 			// 
 			// labelFilterOverDue
 			// 
@@ -333,40 +334,6 @@
 			this.labelFilterOverDue.TabIndex = 0;
 			this.labelFilterOverDue.Text = "Over due";
 			this.labelFilterOverDue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// panelFilterStatus
-			// 
-			this.panelFilterStatus.Controls.Add(this.comboFilterStatus);
-			this.panelFilterStatus.Controls.Add(this.labelFilterStatus);
-			this.panelFilterStatus.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panelFilterStatus.Location = new System.Drawing.Point(20, 170);
-			this.panelFilterStatus.Name = "panelFilterStatus";
-			this.panelFilterStatus.Size = new System.Drawing.Size(200, 75);
-			this.panelFilterStatus.TabIndex = 16;
-			// 
-			// comboFilterStatus
-			// 
-			this.comboFilterStatus.Dock = System.Windows.Forms.DockStyle.Top;
-			this.comboFilterStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboFilterStatus.FormattingEnabled = true;
-			this.comboFilterStatus.Items.AddRange(new object[] {
-            "All",
-            "Borrowing",
-            "Returned"});
-			this.comboFilterStatus.Location = new System.Drawing.Point(0, 35);
-			this.comboFilterStatus.Name = "comboFilterStatus";
-			this.comboFilterStatus.Size = new System.Drawing.Size(200, 25);
-			this.comboFilterStatus.TabIndex = 1;
-			// 
-			// labelFilterStatus
-			// 
-			this.labelFilterStatus.Dock = System.Windows.Forms.DockStyle.Top;
-			this.labelFilterStatus.Location = new System.Drawing.Point(0, 0);
-			this.labelFilterStatus.Name = "labelFilterStatus";
-			this.labelFilterStatus.Size = new System.Drawing.Size(200, 35);
-			this.labelFilterStatus.TabIndex = 0;
-			this.labelFilterStatus.Text = "Status";
-			this.labelFilterStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// panelSearchBooks
 			// 
@@ -385,6 +352,7 @@
 			this.inputSearchBooks.Name = "inputSearchBooks";
 			this.inputSearchBooks.Size = new System.Drawing.Size(200, 25);
 			this.inputSearchBooks.TabIndex = 1;
+			this.inputSearchBooks.TextChanged += new System.EventHandler(this.inputSearchBooks_TextChanged);
 			// 
 			// labelSearchBooks
 			// 
@@ -413,6 +381,7 @@
 			this.inputSearchMembers.Name = "inputSearchMembers";
 			this.inputSearchMembers.Size = new System.Drawing.Size(200, 25);
 			this.inputSearchMembers.TabIndex = 1;
+			this.inputSearchMembers.TextChanged += new System.EventHandler(this.inputSearchMembers_TextChanged);
 			// 
 			// labelSearchMembers
 			// 
@@ -488,6 +457,41 @@
 			this.gridBookBorrows.Size = new System.Drawing.Size(568, 517);
 			this.gridBookBorrows.TabIndex = 11;
 			// 
+			// panelFilterStatus
+			// 
+			this.panelFilterStatus.Controls.Add(this.comboFilterStatus);
+			this.panelFilterStatus.Controls.Add(this.labelFilterStatus);
+			this.panelFilterStatus.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panelFilterStatus.Location = new System.Drawing.Point(20, 245);
+			this.panelFilterStatus.Name = "panelFilterStatus";
+			this.panelFilterStatus.Size = new System.Drawing.Size(200, 75);
+			this.panelFilterStatus.TabIndex = 18;
+			// 
+			// comboFilterStatus
+			// 
+			this.comboFilterStatus.Dock = System.Windows.Forms.DockStyle.Top;
+			this.comboFilterStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboFilterStatus.FormattingEnabled = true;
+			this.comboFilterStatus.Items.AddRange(new object[] {
+            "All",
+            "Borrowing",
+            "Returned"});
+			this.comboFilterStatus.Location = new System.Drawing.Point(0, 35);
+			this.comboFilterStatus.Name = "comboFilterStatus";
+			this.comboFilterStatus.Size = new System.Drawing.Size(200, 25);
+			this.comboFilterStatus.TabIndex = 1;
+			this.comboFilterStatus.SelectedIndexChanged += new System.EventHandler(this.comboFilterStatus_SelectedIndexChanged);
+			// 
+			// labelFilterStatus
+			// 
+			this.labelFilterStatus.Dock = System.Windows.Forms.DockStyle.Top;
+			this.labelFilterStatus.Location = new System.Drawing.Point(0, 0);
+			this.labelFilterStatus.Name = "labelFilterStatus";
+			this.labelFilterStatus.Size = new System.Drawing.Size(200, 35);
+			this.labelFilterStatus.TabIndex = 0;
+			this.labelFilterStatus.Text = "Status";
+			this.labelFilterStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -515,13 +519,13 @@
 			this.panelCurrentUser.ResumeLayout(false);
 			this.panelInfo.ResumeLayout(false);
 			this.panelFilterOverDue.ResumeLayout(false);
-			this.panelFilterStatus.ResumeLayout(false);
 			this.panelSearchBooks.ResumeLayout(false);
 			this.panelSearchBooks.PerformLayout();
 			this.panelSearchMembers.ResumeLayout(false);
 			this.panelSearchMembers.PerformLayout();
 			this.panelAction.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.gridBookBorrows)).EndInit();
+			this.panelFilterStatus.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
