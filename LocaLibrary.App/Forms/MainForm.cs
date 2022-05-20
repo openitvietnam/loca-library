@@ -167,6 +167,8 @@ namespace LocaLibrary.App
             {
                 menuItemManage.Enabled = false;
             }
+            comboFilterStatus.SelectedIndex = 0;
+            comboFilterOverDue.SelectedIndex = 0;
 
             // Load current user
             labelCurrentUserFullName.Text = AuthService.UserLogin.FullName;
