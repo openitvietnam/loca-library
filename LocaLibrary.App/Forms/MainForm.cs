@@ -38,7 +38,6 @@ namespace LocaLibrary.App
         public void EmptyForm()
         {
             GetGrid().ClearSelection();
-            dateExpectedReturnDate.Value = DateTime.Now;
         }
 
         public string ValidateForm()
@@ -207,17 +206,6 @@ namespace LocaLibrary.App
                 return 0;
             }
             return (int)value;
-        }
-
-        private void gridBookBorrows_SelectionChanged(object sender, EventArgs e)
-        {
-            if (GetGrid().SelectedRows.Count == 0)
-            {
-                return;
-            }
-            var row = GetGrid().SelectedRows[0];
-
-            dateExpectedReturnDate.Value = Convert.ToDateTime(row.Cells["ExpectedReturnDate"].Value);
         }
 
         private void buttonReload_Click(object sender, EventArgs e)

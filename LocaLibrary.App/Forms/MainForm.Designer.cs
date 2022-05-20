@@ -52,9 +52,6 @@
 			this.labelCurrentUserFullName = new System.Windows.Forms.Label();
 			this.labelCurrentUser = new System.Windows.Forms.Label();
 			this.panelInfo = new System.Windows.Forms.Panel();
-			this.panelExpectedReturnDate = new System.Windows.Forms.Panel();
-			this.dateExpectedReturnDate = new System.Windows.Forms.DateTimePicker();
-			this.labelExpectedReturnDate = new System.Windows.Forms.Label();
 			this.panelAction = new System.Windows.Forms.Panel();
 			this.buttonReturn = new System.Windows.Forms.Button();
 			this.buttonBorrow = new System.Windows.Forms.Button();
@@ -64,8 +61,6 @@
 			this.panelSide.SuspendLayout();
 			this.panelOverview.SuspendLayout();
 			this.panelCurrentUser.SuspendLayout();
-			this.panelInfo.SuspendLayout();
-			this.panelExpectedReturnDate.SuspendLayout();
 			this.panelAction.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.gridBookBorrows)).BeginInit();
 			this.SuspendLayout();
@@ -278,42 +273,12 @@
 			// 
 			// panelInfo
 			// 
-			this.panelInfo.Controls.Add(this.panelExpectedReturnDate);
 			this.panelInfo.Dock = System.Windows.Forms.DockStyle.Right;
 			this.panelInfo.Location = new System.Drawing.Point(768, 24);
 			this.panelInfo.Name = "panelInfo";
 			this.panelInfo.Padding = new System.Windows.Forms.Padding(20);
 			this.panelInfo.Size = new System.Drawing.Size(240, 577);
 			this.panelInfo.TabIndex = 8;
-			// 
-			// panelExpectedReturnDate
-			// 
-			this.panelExpectedReturnDate.Controls.Add(this.dateExpectedReturnDate);
-			this.panelExpectedReturnDate.Controls.Add(this.labelExpectedReturnDate);
-			this.panelExpectedReturnDate.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panelExpectedReturnDate.Location = new System.Drawing.Point(20, 20);
-			this.panelExpectedReturnDate.Name = "panelExpectedReturnDate";
-			this.panelExpectedReturnDate.Size = new System.Drawing.Size(200, 75);
-			this.panelExpectedReturnDate.TabIndex = 15;
-			// 
-			// dateExpectedReturnDate
-			// 
-			this.dateExpectedReturnDate.CustomFormat = "dd/MM/yyyy";
-			this.dateExpectedReturnDate.Dock = System.Windows.Forms.DockStyle.Top;
-			this.dateExpectedReturnDate.Location = new System.Drawing.Point(0, 35);
-			this.dateExpectedReturnDate.Name = "dateExpectedReturnDate";
-			this.dateExpectedReturnDate.Size = new System.Drawing.Size(200, 25);
-			this.dateExpectedReturnDate.TabIndex = 2;
-			// 
-			// labelExpectedReturnDate
-			// 
-			this.labelExpectedReturnDate.Dock = System.Windows.Forms.DockStyle.Top;
-			this.labelExpectedReturnDate.Location = new System.Drawing.Point(0, 0);
-			this.labelExpectedReturnDate.Name = "labelExpectedReturnDate";
-			this.labelExpectedReturnDate.Size = new System.Drawing.Size(200, 35);
-			this.labelExpectedReturnDate.TabIndex = 0;
-			this.labelExpectedReturnDate.Text = "Expected return date";
-			this.labelExpectedReturnDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// panelAction
 			// 
@@ -378,7 +343,6 @@
 			this.gridBookBorrows.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.gridBookBorrows.Size = new System.Drawing.Size(568, 517);
 			this.gridBookBorrows.TabIndex = 11;
-			this.gridBookBorrows.SelectionChanged += new System.EventHandler(this.gridBookBorrows_SelectionChanged);
 			// 
 			// MainForm
 			// 
@@ -405,8 +369,6 @@
 			this.panelSide.ResumeLayout(false);
 			this.panelOverview.ResumeLayout(false);
 			this.panelCurrentUser.ResumeLayout(false);
-			this.panelInfo.ResumeLayout(false);
-			this.panelExpectedReturnDate.ResumeLayout(false);
 			this.panelAction.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.gridBookBorrows)).EndInit();
 			this.ResumeLayout(false);
@@ -443,9 +405,6 @@
         private System.Windows.Forms.Button buttonReturn;
         private System.Windows.Forms.Button buttonBorrow;
         private System.Windows.Forms.Button buttonReload;
-        private System.Windows.Forms.Panel panelExpectedReturnDate;
-        private System.Windows.Forms.Label labelExpectedReturnDate;
-        private System.Windows.Forms.DateTimePicker dateExpectedReturnDate;
         private System.Windows.Forms.DataGridView gridBookBorrows;
     }
 }
