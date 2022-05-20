@@ -6,21 +6,35 @@ using System.Threading.Tasks;
 
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
+
+using System.Windows.Forms;
 
 namespace LocaLibrary.App.Services
 {
     internal class DatabaseService
     {
-        private static readonly string CONNECTION_STRING =
-            @"Data Source = localhost\SQLEXPRESS;
-            Initial Catalog = LocaLibrary;
-            User ID = LocaLibrary;
-            Password = 123456";
-        //private static readonly string CONNECTION_STRING =
-        //    @"Data Source = .;
-        //    Initial Catalog = LocaLibrary;
-        //    User ID = LocaLibrary;
-        //    Password = 123456";
+        private static readonly string CONNECTION_STRING;
+
+        static DatabaseService()
+        {
+            ConnectionStringSettingsCollection connectionStrings = null;
+            try
+            {
+                connectionStrings = ConfigurationManager.ConnectionStrings;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+                Environment.Exit(1);
+            }
+            if (connectionStrings == null || connectionStrings.Count == 0)
+            {
+                MessageBox.Show("No connection string", "Error");
+                Environment.Exit(2);
+            }
+            CONNECTION_STRING = connectionStrings[0].ConnectionString;
+        }
 
         public static void Check(ref string error)
         {
